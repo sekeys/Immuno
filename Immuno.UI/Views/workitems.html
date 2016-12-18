@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="wwwroot/css/site.css" rel="stylesheet" />
+    <link href="wwwroot/css/font-awesome.min.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>登陆   Vitae</title>
+    <meta charset="utf-8" />
+    <link href="../wwwroot/css/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+
+        .item-selected {
+            color: rgb(0,122,204);
+            font-weight: 700;
+        }
+
+            .item-selected a {
+                color: rgb(0,122,204);
+                font-weight: 700;
+            }
+
+        .menu-item-link {
+            color: rgb(102,102,102);
+        }
+
+            .menu-item-link:hover {
+                color: rgb(0,122,204);
+            }
+
+        .list-item {
+            cursor: pointer;
+        }
+
+        .list-item-selected {
+            color: rgb(0,122,204);
+            cursor: pointer;
+            background-color: #e6f3fb;
+        }
+
+        .list-item:hover {
+            color: rgb(0,122,204);
+            cursor: pointer;
+            background-color: #e6f3fb;
+        }
+
+        .list-item-icon-hover-show {
+            display: none;
+        }
+
+        .list-item:hover .list-item-icon-hover-show {
+            display: inline-block;
+        }
+
+        .menu-bar-item {
+        }
+
+            .menu-bar-item:hover {
+                background-color: #d4e5f5;
+            }
+
+        .menu-bar-item-fc:hover {
+            color: rgb(0,122,204);
+            cursor: pointer;
+        }
+
+        .row {
+            cursor: pointer;
+        }
+
+            .row:hover {
+                background-color: #d4e5f5;
+                color: rgb(0,122,204);
+            }
+
+        .row-selected {
+            background-color: #d4e5f5;
+            color: rgb(0,122,204);
+        }
+
+        .hover-fa {
+            background-color: transparent;
+        }
+
+            .hover-fa:hover {
+                background-color: #fafafa;
+                cursor: pointer;
+            }
+
+        .hover-white {
+            background-color: transparent;
+        }
+
+            .hover-white:hover {
+                background-color: white;
+                cursor: pointer;
+            }
+
+        .hover-button {
+            background-color: #fafafa;
+        }
+
+        .hover-input {
+            background-color: transparent;
+            padding-left: 4px;
+            cursor: auto;
+            color: rgb(102,102,102);
+        }
+
+            .hover-input:hover {
+                background-color: #fafafa;
+                color: rgb(0,122,204);
+            }
+
+        .tag {
+            margin-left: 5px;
+            margin-right: 5px;
+            width: auto;
+            float: left;
+            cursor: pointer;
+        }
+
+            .tag:last-child {
+                clear: both;
+            }
+
+            .tag input {
+                background-color: #d7e6f3;
+                line-height: 20px;
+                height: 20px;
+                width: auto;
+                border-width: 0px;
+                margin: 0px;
+                margin-top: -1px;
+            }
+
+            .tag span {
+                background-color: #d7e6f3;
+                display: inline-block;
+                padding-left: 5px;
+                padding-right: 5px;
+                width: auto;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<!--<body><input type="password" /></body>-->
+<body class="body">
+
+    <div class="main-container" style=" height:100%; width:100%; background-color:white;">
+        <div class="header-section" style=" font-size:100%; vertical-align:baseline; background-clip:border-box; background-color:rgb(0,122,204); border-color:rgb(0,122,204); height:32px;">
+            <div class="header-title" style=" color:white; font-size:100%; margin-left:20px; line-height:30px;">Vitae Workitem</div>
+        </div>
+        <div class="menu" style=" background-color:rgb(241,241,241); color:rgb(102,102,102); font-Size:14px; font-Weight:400; left:20px; font-style:normal;">
+            <ul class="menu-list" style=" list-style-type:none; margin:0px; padding:0px; list-style-position:outside; list-style-image:none;">
+                <li class="item-workitems menu-item item-selected" style=" float:left; border-bottom-color:transparent; margin-left:14px; line-height:20px; color:rgb(127,127,127); padding:3px;">
+                    <a class="menu-item-link" href="workitems" text="Workitems" style=" cursor:pointer; text-decoration:none;">Workitems</a>
+                </li>
+                <li style=" clear:both;"></li>
+            </ul>
+        </div>
+        <div class="content-section" style=" color:rgb(51,51,51); margin:0px; margin-top:1px; min-height:840px;">
+            <div class="left-pane" style=" width:11%; margin-left:5px; min-height:860px; float:left; margin-top:10px;">
+                <div style=" margin-top:30px;"></div>
+                <div class="row" style=" border-bottom-width:1px; font-size:15px; padding-left:2px; line-height:30px; boder-style:none; height:30px; margin-left:0px; overflow:hidden; width:97%; margin-top:5px; margin-bottom:5px; padding-left:3px;">
+                    <span class="fa-align-right fa" style=" font-size:13px; color:rgb(0,122,204);"></span>
+                    <span style=" margin-left:5px;">我的工作项</span>
+                </div>
+                <div class="row" style=" margin-left:0px; overflow:hidden; width:97%; margin-left:0px;">
+                    <div class="row-inner row" style=" font-size:13px; padding-left:2px; line-height:20px; border-style:none; height:20px; margin-left:20px; overflow:hidden; width:97%; margin-top:5px; padding-left:3px;">
+                        <span style=" margin-left:5px;">所  有</span>
+                    </div>
+                </div>
+                <div class="row-selected row" style=" margin-left:0px; overflow:hidden; width:97%; margin-left:0px;">
+                    <div class="row-inner row" style=" font-size:13px; padding-left:2px; line-height:20px; border-style:none; height:20px; margin-left:20px; overflow:hidden; width:97%; margin-top:5px; padding-left:3px;"><span style=" margin-left:5px;">未 结 束</span></div>
+                </div><div class="row" style=" margin-left:0px; overflow:hidden; width:97%; margin-left:0px;">
+                    <div class="row-inner row" style=" font-size:13px; padding-left:2px; line-height:20px; border-style:none; height:20px; margin-left:20px; overflow:hidden; width:97%; margin-top:5px; padding-left:3px;">
+                        <span style=" margin-left:5px;">未 开 始</span>
+                    </div>
+                </div>
+                <div class="row" style=" margin-left:0px; overflow:hidden; width:97%; margin-left:0px;">
+                    <div class="row-inner row" style=" font-size:13px; padding-left:2px; line-height:20px; border-style:none; height:20px; margin-left:20px; overflow:hidden; width:97%; margin-top:5px; padding-left:3px;">
+                        <span style=" margin-left:5px;">正在进行时</span>
+                    </div>
+                </div>
+                <div class="row" style=" border-bottom-width:1px; font-size:15px; padding-left:2px; line-height:30px; border-style:none; height:30px; margin-left:0px; overflow:hidden; width:97%; margin-top:5px; margin-bottom:5px; padding-left:3px;">
+                    <span class="fa-align-right fa" style=" font-size:13px; color:rgb(0,122,204);"></span>
+                    <span style=" margin-left:5px;">Workon Dashbord</span>
+                </div>
+                <div class="row" style=" margin-left:0px; overflow:hidden; width:97%; margin-left:0px;">
+                    <div class="row-inner row" style=" font-size:13px; padding-left:2px; line-height:20px; border-style:none; height:20px; margin-left:20px; overflow:hidden; width:97%; margin-top:5px; padding-left:3px;">
+                        <span style=" margin-left:5px;">Workitems Metrics</span>
+                    </div>
+                </div>
+                <div class="row" style=" border-bottom-width:1px; font-size:15px; padding-left:2px; line-height:30px; border-style:none; height:30px; margin-left:0px; overflow:hidden; width:97%; margin-top:5px; margin-bottom:5px; padding-left:3px;">
+                    <span class="fa-align-right fa" style=" font-size:13px; color:rgb(0,122,204);"></span>
+                    <span style=" margin-left:5px;">Projects</span>
+                </div>
+            </div>
+            <div class="split" style=" cursor:e-resize; margin-bottom:0px; background-color:rgb(204,204,204); width:1px; min-height:860px; float:left;"></div>
+            <div class="content" style=" float:left; width:88%;">
+                <div class="content-title" style=" font-size:13px; margin-bottom:10px; margin-left:20px; margin-top:10px; display:inline-block; color:rgb(34,34,34); line-height:25px; font-weight:300;">Workitems List</div><div class="menu-bar" style=" background-color:transparent; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:rgb(204,204,204); border-top-width:1px; border-top-style:solid; border-top-color:rgb(204,204,204); color:rgb(30,30,30); font-size:12px; font-weight:400; height:32px; margin:10px;"><ul class="menu-list" style=" list-style-type:none; margin:0px; padding:0px; list-style-position:outside; list-style-image:none; height:34px; font-family:&quot;-apple-system&quot;,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,&quot;Helvetica Neue&quot;,Helvetica,Ubuntu,Arial,sans-serif;;"><li class="menu-bar-item" style=" float:left; border-bottom-color:transparent; margin-left:3px; line-height:30px; color:rgb(127,127,127); cursor:pointer; display:inline-block; max-width:250px; padding-left:8px; padding-right:8px; vectical-align:middle; white-space:nowrap; font-size:13px;"><span class="fa-plus fa item-icon"></span><span class="item-text" style=" margin-left:6px;">创 建</span></li><li class="menu-bar-item" style=" float:left; border-bottom-color:transparent; margin-left:3px; line-height:30px; color:rgb(127,127,127); cursor:pointer; display:inline-block; max-width:250px; padding-left:8px; padding-right:8px; vectical-align:middle; white-space:nowrap; font-size:13px;"><span class="fa-refresh fa item-icon"></span><span class="item-text" style=" margin-left:6px;">刷 新</span></li><li style=" clear:both;"></li></ul></div><div class="list" style=" margin-top:-2px; border-color:transparent; color:rgb(34,34,34); margin-left:10px; font-size:14px; overflow:hidden;">
+                    <div class="list-header" style=" color:rgb(110,110,110); border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:transparent; width:9999px;">
+                        <div class="icon" style=" height:25.4px; cursor:default; width:122px; float:left;"></div>
+                        <div class="header" style=" height:25.4px; cursor:default; line-height:25px; width:75px; font-size:13px; float:left; margin-left:20px;">优先级</div>
+                        <div class="header" style=" height:25.4px; cursor:default; line-height:25px; width:350px; font-size:13px; float:left;">标  题</div>
+                        <div class="header" style=" height:25.4px; cursor:default; line-height:25px; width:60px; font-size:13px; float:left; text-align:center;">状  态</div>
+                        <div class="header" style=" height:25.4px; cursor:default; line-height:25px; width:130px; font-size:13px; float:left; text-align:center;">负责人</div>
+                        <div class="header" style=" height:25.4px; cursor:default; line-height:25px; width:110px; font-size:13px; float:left; text-align:left; padding-left:10px;">预期开始时间</div>
+                        <div class="header" style=" height:25.4px; cursor:default; line-height:25px; width:110px; font-size:13px; float:left; text-align:left; padding-left:10px;">预期结束时间</div>
+                        <div style=" clear:both;"></div>
+                    </div>
+                    <div id="workitemlist-landing">
+                    </div>
+                    <div class="content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="wwwroot/js/ns.core.js"></script>
+    <script>
+        ns.landingline({ parent: "#workitemlist-landing", width: 11 });
+        ns.layer().render().max();
+    </script>
+</body>
+
+</html>

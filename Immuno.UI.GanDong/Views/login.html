@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="wwwroot/css/site.css" rel="stylesheet" />
+    <link href="wwwroot/css/font-awesome.min.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>登陆   Vitae</title>
+    <meta charset="utf-8" />
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+
+        .menu-item {
+            cursor: pointer;
+        }
+
+            .menu-item:hover {
+                background-color: #0b76ac;
+            }
+
+        a {
+            text-decoration: none;
+            text-emphasis-style: none;
+            color: inherit;
+        }
+
+        li {
+            list-style: none;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<!--<body><input type="password" /></body>-->
+<body class="body">
+    <div class="content-box" style=" background-color:#0e90d2; height:960px; margin:0px; border:0px;">
+        <div>
+            <div style=" margin-left:auto; margin-right:auto; margin-top:0px; width:1024px;">
+                <h2 style=" margin:0px; text-align:left; color:white; padding-top:5px; float:left;">Vitae</h2>
+                <h3 style=" clear:both;"></h3>
+            </div>
+        </div>
+        <div style=" background-color:#0e90d2;">
+            <div style=" margin:150px auto 30px auto; width:860px; height:560px; background-color:white;">
+                <div>
+                    <div style=" float:left; border-right:0.4px solid #e0e0e0; width:60%; height:420px; margin:20px auto;">
+                        <div style=" margin:20px auto; width:180px; height:150px;">
+                            <img src="wwwroot/images/login_logo.png" width="180" height="146">
+                        </div><div style=" margin:10px 0px; text-align:center;">
+                            <h3 style=" margin:10px 0px; text-align:center;">Logon</h3>
+                        </div>
+                        <div style=" margin:15px 0px;; text-align:center;">
+                            <input id="uname" type="text" placeholder="账号" require="[{&quot;ero&quot;:&quot;请输入账号&quot;,&quot;exp&quot;:&quot;notnull&quot;}]" require-conf="{&quot;origin&quot;:&quot;bottom&quot;}" hoverip-conf='' style=" margin:10px 0px; text-align:left; border:0.5px solid #e6e6e6; height:40px; line-height:40px; border-radius:5px; width:310px; font-size:12pt; padding-left:5px;">
+                        </div>
+                        <div style=" margin:10px 0px;; text-align:center;">
+                            <input id="pwd" type="password" placeholder="密码" require="[{&quot;ero&quot;:&quot;请输入密码&quot;,&quot;exp&quot;:&quot;notnull&quot;}]" require-conf="{&quot;origin&quot;:&quot;bottom&quot;}" style=" margin:10px 0px; text-align:left; border:0.5px solid #e6e6e6; height:40px; line-height:40px; border-radius:5px; width:310px; font-size:12pt; padding-left:5px;">
+                        </div>
+                        <div style=" margin:10px 0px; font-size:11pt;">
+                            <input id="remeber" type="checkbox" style=" margin-left:90px;; cursor:pointer;">
+                            <label style=" margin-left:5px; cursor:pointer;">记住我</label><a href="forget" style=" margin-left:20px;">忘记密码</a>
+                            <input onclick="logon();" type="button" value="登    陆" style=" text-align:center; margin:30px 0px; border:0.5px solid #e6e6e6; height:30px; line-height:30px; cursor:pointer; width:110px; font-size:12pt; padding-left:5px; margin-left:50px;">
+                        </div>
+                    </div><div style=" clear:both;"></div>
+                </div>
+                <div style=" background-color:#e6e6e6; height:80px; margin-top:20px;">
+                    <div style=" margin:35px 20px; font-size:12pt;">
+                        <label>还没有账号</label>
+                        <a href="regiest" style=" margin-left:20px;">立即注册</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="wwwroot/js/ns.core.js"></script>
+    <script>
+        var uname = ns.select("#uname");
+        var pwd = ns.select("#pwd");
+        function logon() {
+            var vuname = uname.value();
+            var vpwd = pwd.value();
+            var rember = ns.select("#remeber").prop("checked");
+
+            if (ns.logicAnd(uname.require(), pwd.require())) {
+                ns.ajax.post("logon", { u: vuname, p: vpwd, r: rember }, function (d) {
+                    if (d.status <= 200) {
+                        if (d.result) {
+                            window.location.href = "/list";
+                        } else {
+                            alert(d.message);
+                        }
+                    } else {
+                        alert("登陆失败，请重新尝试登陆");
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

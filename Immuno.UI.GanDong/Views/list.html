@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../wwwroot/js/ns.js"></script>
+    <link href="wwwroot/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+
+        .item-selected {
+            color: rgb(0,122,204);
+            font-weight: 700;
+        }
+
+            .item-selected a {
+                color: rgb(0,122,204);
+                font-weight: 700;
+            }
+
+        .menu-item-link {
+            color: rgb(102,102,102);
+        }
+
+            .menu-item-link:hover {
+                color: rgb(0,122,204);
+            }
+
+        .list-item {
+            cursor: pointer;
+        }
+
+            .list-item .list-item-icon {
+                display: none;
+            }
+
+        .list-item-selected {
+            color: rgb(0,122,204);
+            cursor: pointer;
+            background-color: #e6f3fb;
+        }
+
+        .list-item:hover {
+            color: rgb(0,122,204);
+            cursor: pointer;
+            background-color: #e6f3fb;
+        }
+
+        .hover-input:hover {
+            border: 1px solid rgb(231,231,231);
+        }
+
+        .menu-bar-item {
+        }
+
+            .menu-bar-item:hover {
+                background-color: #d4e5f5;
+            }
+
+        .list-item:hover .list-item-icon {
+            display: block;
+        }
+
+        .row {
+            cursor: pointer;
+            background-color: rgb(231,231,231);
+        }
+
+        .row-selected {
+            background-color: #d4e5f5;
+            color: rgb(0,122,204);
+        }
+
+        .list-item-icon {
+            width: 25px;
+            height: 25px;
+        }
+
+        .screen-minus {
+            color: rgb(34,34,34);
+        }
+
+        .screen-close {
+            color: rgb(34,34,34);
+        }
+
+        .hover-color {
+            cursor: pointer;
+        }
+
+            .hover-color:hover {
+                color: rgb(0,122,204);
+            }
+
+        .list-item-icon:hover {
+            color: rgb(0,122,204);
+            background-color: rgb(251,251,251);
+            display: inline-block;
+        }
+
+        .edit-icon-menu li {
+            float: left;
+            text-decoration: none;
+            list-style-type: none;
+            cursor: pointer;
+        }
+
+        .icon-menu-item-disabled {
+            color: #e0e0e0;
+        }
+
+        .edit-icon-menu li:hover {
+            background-color: rgb(231,231,231);
+        }
+
+        .font-icon {
+            font-family: "bowtie";
+            font-size: 14px;
+            speak: none;
+            display: inline-block;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            text-align: center;
+            text-decoration: none;
+            line-height: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+
+        .full-screen::before {
+            content: "\e9ce ";
+        }
+    </style>
+
+    <script src="../wwwroot/js/markdown.js"></script>
+    <!--//background-color:rgb(212,229,245);-->
+</head>
+<body style="">
+    <script>
+        var screenwidth = window.screen.width;
+        ns.tag.body(".main-container *height:100%;width:" + screenwidth + "px;background-color:white;")
+            //header
+            .div(".header-section *font-size:100%;vertical-align:baseline;background-clip:border-box;background-color:rgb(0,122,204);border-color:rgb(0,122,204);height:40px;position:fixed;;width:100%;top:0px;")
+            .div(".header-title *color:white;margin-top:0px;margin-left:auto;margin-right:auto;margin-bottom:0px;font-size:100%;width:90%;line-height:40px;").text("Backend Dashboard").end()
+            .end()
+            //header   menu
+            .div(".menu *background-color:rgb(241,241,241);color:rgb(102,102,102);font-Size:14px;font-Weight:400;font-style:normal;position:fixed;top:30px;;width:100%;")
+            .ul(".menu-list *list-style-type:none;margin-top:0px;margin-left:auto;margin-right:auto;margin-bottom:0px;width:90%;padding:0px;list-style-position:outside;list-style-image:none;").css({ "font-family": "\"-apple-system\",BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Helvetica,Ubuntu,Arial,sans-serif;" })
+            .li(".menu-item .item-groups  .item-selected *float:left;border-bottom-color:transparent;line-height:50px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ text: "手表" }).end().end()
+            .li(".menu-item .item-groups  *float:left;border-bottom-color:transparent;margin-left:24px;line-height:50px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "yurf", text: "羽绒服" }).end().end()
+            .li(".menu-item .item-groups *float:left;border-bottom-color:transparent;margin-left:24px;line-height:50px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "xiezi", text: "鞋子" }).end().end()
+            .li("*clear:both;").end()
+            .end()
+            .end()
+            .div(".content-section-core *margin-top:85px;width:100%;margin-left:0%;margin-bottom:60px;min-height:650px;")
+            .div(".menu-bar *width:100%;background-color:#ffffff;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;border-top-color:rgb(204,204,204);color:rgb(30,30,30);font-size:12px;font-weight:400;height:32px;margin-top:0px;margin-left:auto;margin-right:auto;margin-bottom:0px;overflow:hidden;padding:0px;vertical-align:top;")
+            .ul(".menu-list *list-style-type:none;width:90%;margin-top:0px;margin-left:auto;margin-right:auto;margin-bottom:0px;padding:0px;list-style-position:outside;list-style-image:none;height:34px;").css({ "font-family": "\"-apple-system\",BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Helvetica,Ubuntu,Arial,sans-serif;" })
+            .li(".menu-bar-item *float:left;border-bottom-color:transparent;margin-left:3px;line-height:30px;color:rgb(127,127,127);cursor:pointer;display:inline-block;max-width:250px;padding-left:8px;padding-right:8px;vectical-align:middle;white-space:nowrap;font-size:13px;").span(".item-icon .fa .fa-trash-o").end().span(".item-text *margin-left:6px;").text("删 除").event("click", function () {
+                var selected = window.listTable.ns().find(".list-item-selected");
+                var options = [];
+                var folder = false;
+                var hasSearucity = false;
+                var u = "";
+                selected.each(function (d) {
+                    var json = window.JSON.parse(ns.select(this).attr("ns-data"));
+                    options.push(json.id);
+                });
+                if (options.length < 1) {
+                    alert("未选择所要删除的对象，无法完成此操作")
+                    return;
+
+                }
+                ns.ajax.loadJson("/product", "delete", { pid: options.join(',') }, function (d) {
+                    window.listTable.refreshing();
+                });
+            }).end().end()
+            .li(".menu-bar-item *float:left;border-bottom-color:transparent;margin-left:3px;line-height:30px;color:rgb(127,127,127);cursor:pointer;display:inline-block;max-width:250px;padding-left:8px;padding-right:8px;vectical-align:middle;white-space:nowrap;font-size:13px;").a("*color:rgb(127,127,127);text-decoration:none;").attr({ href: "export.sb", "target": "_blank" }).span(".item-icon .fa .fa-long-arrow-down").end().span(".item-text *margin-left:6px;").text("下 载").end().end().end()
+            .li(".menu-bar-item *float:left;border-bottom-color:transparent;margin-left:3px;line-height:30px;color:rgb(127,127,127);cursor:pointer;display:inline-block;max-width:250px;padding-left:8px;padding-right:8px;vectical-align:middle;white-space:nowrap;font-size:13px;").span(".item-icon .fa .fa-refresh").end().span(".item-text *margin-left:6px;").text("刷 新").event("click", function () {
+                window.listTable.landing.show();
+                window.listTable.refreshing();
+            }).end().end()
+            .li("*clear:both;").end()
+            .end()
+            .end()
+            .div(".list *width:90%;margin-top:0px;margin-left:auto;margin-right:auto;margin-bottom:0px;border-color:transparent;color:rgb(34,34,34);font-size:14px;")
+            .div(".list-header *font-weight:bold;color:rgb(0,122,204);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:transparent;width:100%;")
+            //.div(".icon *cursor:default;width:32px;float:left;").end()
+            .div(".header *cursor:default;line-height:25px;width:20%;font-size:13px;float:left;").text("产品名称").end()
+            .div(".header *cursor:default;line-height:25px;width:10%;font-size:13px;float:left;").text("购买者").end()
+            .div(".header *cursor:default;line-height:25px;width:10%;font-size:13px;float:left;").text("联系电话").end()
+            .div(".header *cursor:default;line-height:25px;width:30%;font-size:13px;float:left;").text("地址").end()
+            .div(".header *cursor:default;line-height:25px;width:15%;font-size:13px;float:left;").text("提交时间").end()
+            .div(".header *cursor:default;line-height:25px;width:15%;font-size:13px;float:left;").text("来源").end()
+            .div("*clear:both;").end()
+            .end()
+            .div(".content *overflow:visible;").host("listTable", window)
+            .landingline({ width: "13", height: "1", "margin-top": "35px;" }, window.listTable)//list
+            .refreshing("/orders", "get", { size: "1",client:"zdb" }, function (d) {
+                window.listTable.landing.hide();
+                if (d.status <= 201 && d.result) {
+                    //window.currentDir = { name: d.d.name, folder: d.d.folder };
+                    ns.tag.div(".list-content *margin-top:5px;").datum(new ns.data(d.d).sort("postdate desc").data).list(function (t) {
+                        this.div(".list-item *font-size:12px;").attr({ "ns-data": window.JSON.stringify(t) }).event("click", function (e) {
+                            var self = ns.select(this);
+
+                            if (self.hasClass("list-item-selected"))
+                                self.removeClass("list-item-selected");
+                            else {
+                                //self.parent().find(".list-item-selected").removeClass("list-item-selected");
+                                ns.select(this).addClass("list-item-selected");
+                            }
+
+                        })
+                            //.div(".icon *height:25.4px;cursor:default;width:0px;float:left;").end()
+                            .div(".header *line-height:25px;width:20%;font-size:13px;float:left;").text(t.name).end()
+                            .div(".header *line-height:25px;width:10%;font-size:13px;float:left;").text(t.customer).end()
+                            .div(".header *line-height:25px;width:10%;font-size:13px;float:left;").text(t.phone).end()
+                            .div(".header *line-height:25px;width:30%;font-size:13px;float:left;").text(t.province + t.address).end()
+                            .div(".header *line-height:25px;width:15%;font-size:13px;float:left;").text(t.postdate).end()
+                            .div(".header *line-height:25px;width:15%;font-size:13px;float:left;").text(t.formcode).end()
+                            .div("*clear:both;").end()
+                            .end();
+                    }).render(window.listTable, true);
+                }
+            }, "text/json")
+            .end()
+            .end()
+            .end()
+            .end()
+            .render();
+    </script>
+    <script>
+        //var body=ns.select("body");
+        //ns.select(window).on("click", function (e)
+        //{
+        //        //window.fileComment.ns().hide();
+        //});
+        //window.loadComments({});
+    </script>
+</body>
+</html>

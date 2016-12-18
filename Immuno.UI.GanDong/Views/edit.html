@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="wwwroot/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="../wwwroot/codemirror/codemirror.js"></script>
+    <!--<script src="wwwroot/js/cm.js"></script>-->
+    <link href="wwwroot/css/cm.css" rel="stylesheet" />
+    <script src="wwwroot/lib/jquery/dist/jquery.js" type="text/javascript"></script>
+    <script src="wwwroot/js/cmJavaScript.js"></script>
+    <script src="wwwroot/codemirror/css.js"></script>
+    <script src="wwwroot/js/cmJavaScript.js"></script>
+    <script src="wwwroot/js/ns.js"></script>
+    <link href="wwwroot/codemirror/css/csscolors.css" rel="stylesheet" />
+    <script>
+
+    </script>
+    <style>
+        .CodeMirror {
+            border: 1px solid #eee;
+            height: auto;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+
+        .item-selected {
+            color: rgb(0,122,204);
+            font-weight: 700;
+        }
+
+            .item-selected a {
+                color: rgb(0,122,204);
+                font-weight: 700;
+            }
+
+        .menu-item-link {
+            color: rgb(102,102,102);
+        }
+
+            .menu-item-link:hover {
+                color: rgb(0,122,204);
+            }
+
+        .list-item {
+            cursor: pointer;
+        }
+
+        .list-item-selected {
+            color: rgb(0,122,204);
+            cursor: pointer;
+            background-color: #e6f3fb;
+        }
+
+        .list-item:hover {
+            color: rgb(0,122,204);
+            cursor: pointer;
+            background-color: #e6f3fb;
+        }
+
+        .menu-bar-item {
+        }
+
+            .menu-bar-item:hover {
+                background-color: #d4e5f5;
+            }
+
+        .row {
+            cursor: pointer;
+            background-color: rgb(231,231,231);
+        }
+
+        .row-selected {
+            background-color: #d4e5f5;
+            color: rgb(0,122,204);
+        }
+    </style>
+    <%ModelScript%>
+    <script>
+    immuno.model.type = immuno.model.name.substr(immuno.model.name.lastIndexOf('.') + 1);
+    //if (immuno.model.type == "js") {
+        ns.tag.script("wwwroot/codemirror/addon/edit/matchbrackets.js");
+        ns.tag.script("wwwroot/codemirror/addon/comment/continuecomment.js");
+        ns.tag.script("wwwroot/codemirror/addon/comment/comment.js");
+        ns.tag.script("wwwroot/codemirror/addon/hint/css-hint.js");
+        ns.tag.script("wwwroot/codemirror/javascript.js");
+
+        ns.tag.style("wwwroot/codemirror/css/csscolors.css");
+        ns.tag.script("../wwwroot/codemirror/xml.js");
+        ns.tag.script("wwwroot/codemirror/addon/hint/show-hint.js");
+        ns.tag.script("wwwroot/codemirror/addon/hint/css-hint.js");
+        //ns.tag.script("../wwwroot/codemirror/parsexml.js");
+        //ns.tag.script("../wwwroot/codemirror/parsecss.js");
+        ns.tag.script("../wwwroot/codemirror/tokenizejavascript.js");
+        //ns.tag.script("../wwwroot/codemirror/parsejavascript.js");
+        //ns.tag.script("../wwwroot/codemirror/parsehtmlmixed.js");
+        ns.tag.script("../wwwroot/codemirror/addon/hint/css-hint.js");
+        ns.tag.style("../wwwroot/codemirror/css/csscolors.css");
+
+        ns.tag.script("../wwwroot/codemirror/tokenizecsharp.js");
+        //ns.tag.script("../wwwroot/codemirror/parsecsharp.js");
+        ns.tag.style("../wwwroot/codemirror/css/csharpcolors.css");
+        
+    //}
+    </script>
+    <!--//background-color:rgb(212,229,245);-->
+</head>
+<body style="">
+    <script>
+        var screenwidth = window.screen.width;
+        ns.tag.body(".main-container *height:100%;width:" + screenwidth + "px;background-color:white;")
+            //header
+            .div(".header-section *font-size:100%;vertical-align:baseline;background-clip:border-box;background-color:rgb(0,122,204);border-color:rgb(0,122,204);height:32px;position:fixed;;width:" + screenwidth + "px;top:0px;z-index:33;")
+                .div(".header-title *color:white;font-size:100%;margin-left:20px;line-height:30px;").text("Vitae Editor").end()
+            .end()
+            //header   menu
+            .div(".menu *background-color:rgb(241,241,241);color:rgb(102,102,102);font-Size:14px;font-Weight:400;font-style:normal;position:fixed;top:30px;;width:" + screenwidth + "px;z-index:33;")
+                .ul(".menu-list *list-style-type:none;margin:0px;padding:0px;list-style-position:outside;list-style-image:none;").css({ "font-family": "\"-apple-system\",BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Helvetica,Ubuntu,Arial,sans-serif;" })
+                    .li(".menu-item .item-rooms *float:left;border-bottom-color:transparent;margin-left:24px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "rooms", text: "Rooms" }).end().end()
+                    .li(".menu-item .item-groups *float:left;border-bottom-color:transparent;margin-left:24px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "groups", text: "Groups" }).end().end()
+                    .li(".menu-item .item-folders  *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ text: "Folders",href:"folder" }).end().end()
+                    .li(".menu-item .item-edit .item-selected *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ text: "Edit" }).end().end()
+                    .li(".menu-item .item-workitems *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "workitems", text: "Workitems" }).end().end()
+                    .li(".menu-item .item-blogs *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "blogs", text: "Blogs" }).end().end()
+                    .li(".menu-item .item-caledar *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "caledar", text: "Caledar" }).end().end()
+                    .li(".menu-item .item-precautions *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "chats", text: "Chats" }).end().end()
+                    .li(".menu-item .item-precautions *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "precautions", text: "Precautions" }).end().end()
+                    //.li(".menu-item .item-messages *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "messages", text: "Messages" }).end().end()
+                    .li("*clear:both;").end()
+                .end()
+            .end()
+            //menu  top
+            //.div(".content-section *color:rgb(51,51,51);margin:0px;margin-top:1px;min-height:840px;position:fixed;top:50px;;width:" + screenwidth + "px;")
+                .div(".left-pane *width:13%;margin-left:5px;min-height:860px;float:left;margin-top:10px;top:50px;position:fixed;")
+                    .div(".row .row-selected *border-bottom-width:1px;font-size:15px;padding-left:2px;line-height:30px;border-color:rgb(34,34,34);boder-style:none;height:30px;margin-left:0px;overflow:hidden;width:97%;margin-top:5px;margin-bottom:5px;padding-left:3px;").span(".fa .fa-user *font-size:13px;color:rgb(84,84,84)").end().span("*margin-left:3px;").text("My").end().end()
+                    .div(".row *border-bottom-width:1px;font-size:15px;padding-left:2px;line-height:30px;border-color:rgb(34,34,34);boder-style:none;height:30px;margin-left:0px;overflow:hidden;width:97%;margin-top:5px;margin-bottom:5px;padding-left:3px;").span(".fa .fa-group *font-size:13px;color:rgb(84,84,84)").end().span("*margin-left:3px;").text("MegaZonic").end().end()
+                .end()
+                //left center
+                .div(".split *cursor:e-resize;margin-bottom:0px;background-color:rgb(204,204,204);width:1px;min-height:860px;float:left;margin-top:7px;top:50px;left:13.5%;position:fixed;")
+                .end()
+                .div(".content *float:left;width:86%;background-color:#ffffff;position:fixed;left:14%;top:56px;z-index:33;")
+                    .div(".content-title *font-size:19px;margin-bottom:1px;margin-left:20px;margin-top:10px;display:inline-block;color:rgb(34,34,34);line-height:30px;font-weight:400;").host("title", window).text(immuno.model.name).end()
+                    .div(".menu-bar *background-color:#ffffff;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;border-top-color:rgb(204,204,204);color:rgb(30,30,30);font-size:12px;font-weight:400;height:32px;margin:10px 0px;overflow:hidden;padding:0px;vertical-align:top;")
+                        .ul(".menu-list *list-style-type:none;margin:0px;padding:0px;list-style-position:outside;list-style-image:none;height:34px;").css({ "font-family": "\"-apple-system\",BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Helvetica,Ubuntu,Arial,sans-serif;" })
+                            .li(".menu-bar-item *float:left;border-bottom-color:transparent;margin-left:3px;line-height:30px;color:rgb(127,127,127);cursor:pointer;display:inline-block;max-width:250px;padding-left:8px;padding-right:8px;vectical-align:middle;white-space:nowrap;font-size:13px;").span(".item-icon .fa .fa-save").end().span(".item-text *margin-left:6px;").text("保 存").event("click", function ()
+                            {
+                                window.landing.show(); //editor.toTextArea();
+                                ns.ajax.load("/file.person", "options", { file: immuno.model.name, u: immuno.model.u, desc: immuno.model.info, content: window.editor.getValue() }, function (d)
+                                {
+                                    window.landing.hide();
+                                    if (d.result && d.status < 201) {
+                                        if (!window.editPopup) {
+                                            window.editPopup = new ns.tag.popup();
+                                            window.editPopup.css({ "background-color": "#60AC39" });
+                                            //window.deletePopup.render();
+                                        }
+                                        window.editPopup.content("文件保存成功！");
+                                        window.editPopup.render();
+                                    } else {
+                                        alert("创建文件（夹）失败");
+                                    }
+                                }, "text/json");
+                            }).end().end()
+                            .li(".menu-bar-item *float:left;border-bottom-color:transparent;margin-left:3px;line-height:30px;color:rgb(127,127,127);cursor:pointer;display:inline-block;max-width:250px;padding-left:8px;padding-right:8px;vectical-align:middle;white-space:nowrap;font-size:13px;").a("*color:rgb(127,127,127);text-decoration:none;").attr({ href: "file.download?p=" + immuno.model.u, "target": "_blank" }).span(".item-icon .fa .fa-long-arrow-down").end().span(".item-text *margin-left:6px;").text("下 载").end().end().end()
+                            .li(".menu-bar-item *float:right;border-bottom-color:transparent;margin-left:3px;line-height:30px;color:rgb(127,127,127);cursor:pointer;display:inline-block;max-width:250px;padding-left:8px;padding-right:8px;vectical-align:middle;white-space:nowrap;font-size:13px;").span(".item-icon .fa .fa-history").event("click", function ()
+                            {
+                            }).end().end()
+                            .li("*clear:both;").end()
+                        .end()
+
+                    .end()
+                    .div().landingline({ width: "13", height: "1", "margin-top": "35px;" }, window).end()
+
+                    //center right
+                .end()
+                .div(".split *cursor:e-resize;margin-bottom:0px;background-color:rgb(204,204,204);width:1px;min-height:860px;float:left;left:83.1%;margin-top:7px;position:fixed;top:50px;left:84%;display:none;")
+                .end()
+                .div(".right-pane *left:84.8%;width:13%;float:left;position:fixed;top:50px;display:none;")
+                    .div(".rp-title *margin-left:2px;margin-bottom:5px;font-size:17px;color:rgb(127,127,127);font-weight:100;margin-top:5px;").text("Detail Information").end()
+                    .div(".panel-instruction")
+                        .div(".instruction-content *margin-top:10px;").callback(function ()
+                        {
+                            window.displayDetailInformation = function (d)
+                            {
+                                ns.select(".instruction-header").text(d.name);
+                                ns.select(".instruction-item-size").find(".after").text(d.size || "-");
+                                ns.select(".instruction-item-classify").find(".after").text(d.classify);
+                                ns.select(".instruction-item-security").find(".after").text(d.security);
+                                ns.select(".instruction-item-description").find(".after").text(d.description);
+                            }
+                        })
+                            .div(".instruction-header *box-size:border-box;border-bottom-color:rgb(221,221,221);border-bottom-width:1px;margin-bottom:8px;border-bottom-style:solid;font-size:15px;color:rgb(82,82,82);").text("Namespace.js")
+                            .end()
+                            .div(".instruction-item-size  *box-size:border-box;border-bottom-width:0px;font-size:13px;color:rgb(82,82,82);margin-top:3px;")
+                                .span(".pre *height:20px;width:60px;display:inline-block;line-height:20px;font-size:12px;color:(132,1322,132)").text("文件大小").end().span(".middle *height:20px;display:inline-block;width:2px;line-height:20px;").text(":").end().span(".after *height:20px;display:inline-block;margin-left:7px;line-height:20px;").text("122Kb").end()
+                            .end()
+                            .div(".instruction-item-classify *box-size:border-box;border-bottom-width:0px;font-size:13px;color:rgb(82,82,82);margin-top:3px;")
+                                 .span(".pre *height:20px;width:60px;display:inline-block;line-height:20px;font-size:12px;color:(132,1322,132)").text("文件类型").end().span(".middle *height:20px;display:inline-block;width:2px;line-height:20px;").text(":").end().span(".after *height:20px;display:inline-block;margin-left:7px;line-height:20px;").text("javascript文件").end()
+                            .end()
+                            .div(".instruction-item-security *box-size:border-box;border-bottom-width:0px;font-size:13px;color:rgb(82,82,82);margin-top:3px;")
+                                 .span(".pre *height:20px;width:60px;display:inline-block;line-height:20px;font-size:12px;color:(132,1322,132)").text("文件等级").end().span(".middle *height:20px;display:inline-block;width:2px;line-height:20px;").text(":").end().span(".after *height:20px;display:inline-block;margin-left:7px;line-height:20px;font-size:13px;").text("javascript文件").end()
+                            .end()
+                            .div(".instruction-item-description *box-size:border-box;border-bottom-width:0px;font-size:13px;color:rgb(82,82,82);margin-top:3px;")
+                                 .span(".pre *height:20px;width:60px;display:inline-block;line-height:20px;font-size:12px;color:(132,1322,132)").text("文件描述").end().span(".middle *height:20px;display:inline-block;width:2px;line-height:20px;").text(":").end()
+                                .div(".after *height:20px;margin-left:4px;line-height:20px;word-wrap:break-word;text-indent:1.01em;").text("javascript文件122222222222222222222222222222222222222222222222222222222222222222").end()
+                            .end()
+                        .end()
+                    .end()
+                .end()
+            //middle-content core area
+            .div(".content-section-core *margin-top:150px;width:86%;margin-left:14%;margin-bottom:60px;")
+
+                 .textarea().attr({ class: "codemirro", id: "codemirro", row: 210 }).css({ "height": "830px", "padding": "0px;", border: "1px solid #eee;", "margin-top": "1px;", overflow: "visible", width: "99%", "margin-left": "10px;" }).text(immuno.model.content || " ").end()
+            .end()
+        .end()
+        .render();
+    </script>
+    <script>
+        window.landing.hide();
+        window.editor = null;
+        CodeMirror.commands.autocomplete = function (cm)
+        {
+            cm.showHint({ hint: CodeMirror.hint.anyword });
+        }
+        immuno.model.type = immuno.model.name.substr(immuno.model.name.lastIndexOf('.') + 1);
+        if (immuno.model.type == "js") {
+            window.editor = CodeMirror.fromTextArea(document.getElementById("codemirro"), {
+                lineNumbers: true,value: immuno.model.content,
+                lineWrapping: true,
+                mode: "javascript",
+                matchBrackets: true,
+                height: "auto",
+                autoMatchParents: true,
+                continueComments: "Enter",
+                extraKeys: { "Ctrl-Q": "toggleComment" }
+            });
+        } else if (immuno.model.type == "ts") {
+            window.editor = CodeMirror.fromTextArea(document.getElementById("codemirro"), {
+                lineNumbers: true, value: immuno.model.content,
+                lineWrapping: true,
+                mode: "text/typescript",
+                matchBrackets: true,
+                continueComments: "Enter",
+                extraKeys: { "Ctrl-Q": "toggleComment" }
+            });
+        } else if (immuno.model.type == "css") {
+            //ns.tag.script("wwwroot/codemirror/parsecss.js");
+
+            window.editor = CodeMirror.fromTextArea(document.getElementById("codemirro"), {
+                lineNumbers: true, value: immuno.model.content,
+                lineWrapping: true,
+                "min-height": "820px",
+                mode: "text/css",
+                continueComments: "Enter", extraKeys: { "Ctrl-Space": "autocomplete" },
+            });
+        }
+        else if (immuno.model.type == "xml") {
+
+            window.editor = CodeMirror.fromTextArea(document.getElementById("codemirro"), {
+                lineNumbers: true, value: immuno.model.content,
+                lineWrapping: true,
+                "min-height": "820px",
+                mode: "text/html",
+                continueComments: "Enter", extraKeys: { "Ctrl-Space": "autocomplete" },
+            });
+        }
+        else if (immuno.model.type == "html") {
+
+            window.editor = CodeMirror.fromTextArea(document.getElementById("codemirro"), {
+                lineNumbers: true, value: immuno.model.content,
+                lineWrapping: true,
+                "min-height": "820px",
+                mode: "text/html",
+                continueComments: "Enter", extraKeys: { "Ctrl-Space": "autocomplete" }
+                 , parserfile: ["wwwroot/codemirror/parsexml.js", "wwwroot/codemirror/parsecss.js", "wwwroot/codemirror/tokenizejavascript.js", "wwwroot/codemirror/parsejavascript.js", "wwwroot/codemirror/parsehtmlmixed.js"],
+                stylesheet: ["wwwroot/codemirror/css/xmlcolors.css", "wwwroot/codemirror/css/jscolors.css", "wwwroot/codemirror/css/csscolors.css"],
+
+            });
+        }
+        else if (immuno.model.type == "sql") {
+            window.editor = CodeMirror.fromTextArea(document.getElementById("codemirro"), {
+                value: immuno.model.content
+                , parserfile: ["wwwroot/codemirror/parsexml.js", "wwwroot/codemirror/parsecss.js", "wwwroot/codemirror/tokenizejavascript.js", "wwwroot/codemirror/parsejavascript.js", "wwwroot/codemirror/parsehtmlmixed.js"],
+                stylesheet: ["wwwroot/codemirror/css/xmlcolors.css", "wwwroot/codemirror/css/jscolors.css", "wwwroot/codemirror/css/csscolors.css"],
+            });
+        }
+        else if (immuno.model.type == "cs") {
+            window.editor = CodeMirror.fromTextArea(document.getElementById("codemirro"), {
+
+                lineNumbers: true, value: immuno.model.content,
+                lineWrapping: true,
+                 parserfile: ["wwwroot/codemirror/tokenizecsharp.js", "wwwroot/codemirror/parsecsharp.js"],
+                stylesheet: "wwwroot/codemirror/css/csharpcolors.css",
+            });
+        }
+        function doHighlight()
+        {
+            CodeMirror.runMode(document.getElementById("code").value, immuno.model.tp,
+                               document.getElementById("output"));
+        }
+        var func = {};
+    </script>
+</body>
+</html>

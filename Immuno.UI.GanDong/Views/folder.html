@@ -1,0 +1,496 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../wwwroot/js/ns.js"></script>
+    <link href="wwwroot/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+
+        .item-selected {
+            color: rgb(0,122,204);
+            font-weight: 700;
+        }
+
+            .item-selected a {
+                color: rgb(0,122,204);
+                font-weight: 700;
+            }
+
+        .menu-item-link {
+            color: rgb(102,102,102);
+        }
+
+            .menu-item-link:hover {
+                color: rgb(0,122,204);
+            }
+
+        .list-item {
+            cursor: pointer;
+        }
+
+            .list-item .list-item-icon {
+                display: none;
+            }
+
+        .list-item-selected {
+            color: rgb(0,122,204);
+            cursor: pointer;
+            background-color: #e6f3fb;
+        }
+
+        .list-item:hover {
+            color: rgb(0,122,204);
+            cursor: pointer;
+            background-color: #e6f3fb;
+        }
+
+        .hover-input:hover {
+            border: 1px solid rgb(231,231,231);
+        }
+
+        .menu-bar-item {
+        }
+
+            .menu-bar-item:hover {
+                background-color: #d4e5f5;
+            }
+
+        .list-item:hover .list-item-icon {
+            display: block;
+        }
+
+        .row {
+            cursor: pointer;
+            background-color: rgb(231,231,231);
+        }
+
+        .row-selected {
+            background-color: #d4e5f5;
+            color: rgb(0,122,204);
+        }
+
+        .list-item-icon {
+            width: 25px;
+            height: 25px;
+        }
+
+        .screen-minus {
+            color: rgb(34,34,34);
+        }
+
+        .screen-close {
+            color: rgb(34,34,34);
+        }
+
+        .hover-color {
+            cursor: pointer;
+        }
+
+            .hover-color:hover {
+                color: rgb(0,122,204);
+            }
+
+        .list-item-icon:hover {
+            color: rgb(0,122,204);
+            background-color: rgb(251,251,251);
+            display: inline-block;
+        }
+
+        .edit-icon-menu li {
+            float: left;
+            text-decoration: none;
+            list-style-type: none;
+            cursor: pointer;
+        }
+
+        .icon-menu-item-disabled {
+            color: #e0e0e0;
+        }
+
+        .edit-icon-menu li:hover {
+            background-color: rgb(231,231,231);
+        }
+
+        .font-icon {
+            font-family: "bowtie";
+            font-size: 14px;
+            speak: none;
+            display: inline-block;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            text-align: center;
+            text-decoration: none;
+            line-height: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+
+        .full-screen::before {
+            content: "\e9ce ";
+        }
+
+        .title-hover {
+            cursor: pointer;
+        }
+
+            .title-hover:hover {
+                color: rgb(0,122,204);
+            }
+    </style>
+
+    <!--//background-color:rgb(212,229,245);-->
+</head>
+<body style="">
+    <script>
+        function changetypes(w,s)
+        {
+            if (!s) {
+                window.listTable.refreshing("/file.person",{ w: w });
+            } else {
+                window.listTable.refreshing("/file.share",{ folder: ns.select(this).attr("ns-options") });
+            }
+        }
+        var screenwidth = window.screen.width;
+        var params = ns.querystring();
+        ns.tag.body(".main-container *height:100%;width:" + screenwidth + "px;background-color:white;")
+            //header
+            .div(".header-section *font-size:100%;vertical-align:baseline;background-clip:border-box;background-color:rgb(0,122,204);border-color:rgb(0,122,204);height:32px;position:fixed;;width:" + screenwidth + "px;top:0px;")
+                .div(".header-title *color:white;font-size:100%;margin-left:20px;line-height:30px;").text("Vitae Editor").end()
+            .end()
+            //header   menu
+            .div(".menu *background-color:rgb(241,241,241);color:rgb(102,102,102);font-Size:14px;font-Weight:400;font-style:normal;position:fixed;top:30px;;width:" + screenwidth + "px;")
+                .ul(".menu-list *list-style-type:none;margin:0px;padding:0px;list-style-position:outside;list-style-image:none;").css({ "font-family": "\"-apple-system\",BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Helvetica,Ubuntu,Arial,sans-serif;" })
+                    .li(".menu-item .item-rooms *float:left;border-bottom-color:transparent;margin-left:24px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "rooms", text: "Rooms" }).end().end()
+                    .li(".menu-item .item-groups *float:left;border-bottom-color:transparent;margin-left:24px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "groups", text: "Groups" }).end().end()
+                    .li(".menu-item .item-folders .item-selected *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ text: "Folders" }).end().end()
+                    .li(".menu-item .item-edit *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ text: "Edit" }).end().end()
+                    .li(".menu-item .item-workitems *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "workitems", text: "Workitems" }).end().end()
+                    .li(".menu-item .item-blogs *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "blogs", text: "Blogs" }).end().end()
+                    .li(".menu-item .item-caledar *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "caledar", text: "Caledar" }).end().end()
+                    .li(".menu-item .item-precautions *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "chats", text: "Chats" }).end().end()
+                    .li(".menu-item .item-precautions *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "precautions", text: "Precautions" }).end().end()
+                    .li(".menu-item .item-messages *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "messages", text: "Messages" }).end().end()
+                    .li("*clear:both;").end()
+                .end()
+            .end()
+            //menu  top
+            //.div(".content-section *color:rgb(51,51,51);margin:0px;margin-top:1px;min-height:840px;position:fixed;top:50px;;width:" + screenwidth + "px;")
+                .div(".left-pane *width:13%;margin-left:5px;min-height:860px;float:left;margin-top:10px;top:50px;position:fixed;")
+                    .div(".row .row-selected *border-bottom-width:1px;font-size:15px;padding-left:2px;line-height:30px;border-color:rgb(34,34,34);boder-style:none;height:30px;margin-left:0px;overflow:hidden;width:97%;margin-top:5px;margin-bottom:5px;padding-left:3px;").span(".fa .fa-user *font-size:13px;color:rgb(84,84,84)").end().span("*margin-left:3px;").text("我的文件").end().end()
+                    .div(".row *border-bottom-width:1px;font-size:15px;padding-left:2px;line-height:30px;border-color:rgb(34,34,34);boder-style:none;height:30px;margin-left:0px;overflow:hidden;width:97%;margin-top:5px;margin-bottom:5px;padding-left:3px;").span(".fa  *font-size:13px;color:rgb(84,84,84)").end().span("*margin-left:3px;").text("分  享").end().end()
+                    .div().host("grouptable",window).end().refreshing("/group", "get", { }, function (d)
+                    {
+                        window.grouptable.landing.hide();
+                        if (d.status <= 200 && d.result) {
+                            ns.tag.div().datum(d.d).list(function (t)
+                            {
+                                this.div(".row *border-bottom-width:1px;font-size:15px;padding-left:2px;line-height:30px;border-color:rgb(34,34,34);boder-style:none;height:30px;margin-left:0px;overflow:hidden;width:97%;margin-top:5px;margin-bottom:5px;padding-left:3px; :onlick:changetypes('"+t.u+"')").span(".fa .fa-group *font-size:13px;color:rgb(84,84,84)").end().span("*margin-left:3px;").attr("ns-target",t.u).text(t.t).end().end()
+                            }).end().render(window.grouptable, true)
+                        }
+                    }, "text/json")
+                .end()
+                //left center
+                .div(".split *cursor:e-resize;margin-bottom:0px;background-color:rgb(204,204,204);width:1px;min-height:860px;float:left;margin-top:7px;top:50px;left:13.5%;position:fixed;")
+                .end()
+                .div(".content *float:left;width:84.5%;background-color:#ffffff;position:fixed;left:14%;top:56px;")
+                    .div(".content-title *font-size:18px;margin-bottom:10px;margin-left:20px;margin-top:10px;display:inline-block;color:rgb(34,34,34);line-height:25px;font-weight:300;").host("title", window)
+                        .span(".title-hover").text("Root").end().span().text("/").end()
+                    .end()
+                    .div(".menu-bar *background-color:#ffffff;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;border-top-color:rgb(204,204,204);color:rgb(30,30,30);font-size:12px;font-weight:400;height:32px;margin:10px 0px;overflow:hidden;padding:0px;vertical-align:top;")
+                        .ul(".menu-list *list-style-type:none;margin:0px;padding:0px;list-style-position:outside;list-style-image:none;height:34px;").css({ "font-family": "\"-apple-system\",BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Helvetica,Ubuntu,Arial,sans-serif;" })
+                            .li(".menu-bar-item *float:left;border-bottom-color:transparent;margin-left:3px;line-height:30px;color:rgb(127,127,127);cursor:pointer;display:inline-block;max-width:250px;padding-left:8px;padding-right:8px;vectical-align:middle;white-space:nowrap;font-size:13px;").span(".item-icon .fa .fa-plus").end().span(".item-text *margin-left:6px;").text("创 建").event("click", function ()
+                            {
+                                if (this.dialog) {
+                                    this.dialog.show();
+                                    return;
+                                }
+                                var me = this;
+                                this.dialog =
+                                ns.tag.dialog({
+                                    content: function ()
+                                    {
+                                        this.div().css({ "padding-top": "20px;", "font-size": "13pt" }).div()
+                                                .div().css({ margin: "10px 10px" }).label().css({ "font-size": "11pt" }).text("文件名称：").end().textbox().css({ "border": "1px solid #808080;", height: "30px", "line-height": "30px", width: "460px;", "padding": "2px" }).attr({ class: "newfile-name" }).end().end()
+                                                .div().css({ margin: "10px 10px" }).label().css({ "font-size": "11pt" }).text("文件类型：").end().selectTag().css({ "border": "1px solid #808080;", height: "30px", "line-height": "30px", width: "460px;", "padding": "2px", "font-size": "12pt", cursor: "pointer" }).attr({ class: "newfile-format" }).list([{ text: "文件夹", value: "folder" }, { text: "文本 文件", value: "text" }, { text: "C# 文件", value: "cs" }, { text: "HTML文件", value: "html" }, { text: "javascript", value: "javascript" }, { text: "css", value: "css" }, { text: "less", value: "less" }, { text: "typescript", value: "typescript" }, { text: "package", value: "pack" }, { text: "solution 文件", value: "solution" }]).end().end()
+                                                .div().css({ "margin": "10px 10px;" }).css({ "font-size": "11pt", "display": "block", "height": "20px;", "line-height": "20px", }).text("详细信息：").end()
+                                                .div("*margin-top:10px;").end().editView({ simple: true, height: 100, width: 460, enable3DMenu: false })
+                                                .div(".check-to-edit").css({ margin: "10px 10px;" }).check().css({ "margin-left": "60px;", width: "14px;", height: "14px;", "line-height": "10px", cursor: "pointer" }).end().label("*font-size:11pt").text("直接前往编辑").end().end()
+                                                .div().css({ margin: "50px 50px;" }).input().css({ "margin-left": "60px;", width: "80px;", height: "30px;", "line-height": "30px", cursor: "pointer" }).event("click", function () { me.dialog.hide(); }).attr({ type: "button", value: "取  消" }).end().input().css({ "margin-left": "25px;", width: "80px;", height: "30px;", "line-height": "30px", cursor: "pointer" }).attr({ type: "button", value: "创  建" }).event("click", function ()
+                                                {
+                                                    var n = ns.select(".newfile-name").value(), t = ns.select(".newfile-format").value(), i = ns.select(".newfile-information").value();
+                                                    var gotoEdit = false;
+
+                                                    ns.ajax.post("/file.person", { file: n, t: t, desc: i, f: window.currentDir.folder }, function (d)
+                                                    {
+                                                        if (d.result && d.status < 201) {
+                                                            if (gotoEdit) { window.location.href = "/edit?p=" + d.p; }
+                                                            else {
+                                                                me.dialog.hide();
+                                                                if (ns.select(".check-to-edit").is(":checked")) {
+                                                                    window.location.href = "/edit?p=" + d.d.p;
+                                                                }
+                                                                window.listTable.refreshing();
+                                                            }
+                                                        } else {
+                                                            alert("创建文件（夹）失败");
+                                                        }
+                                                    });
+                                                }).end().end()
+                                            .end()
+                                        .end();
+                                    }, title: "创建文件(夹)",
+                                    width: 660, height: 350
+                                });
+                            }).end().end()
+                            .li(".menu-bar-item *float:left;border-bottom-color:transparent;margin-left:3px;line-height:30px;color:rgb(127,127,127);cursor:pointer;display:inline-block;max-width:250px;padding-left:8px;padding-right:8px;vectical-align:middle;white-space:nowrap;font-size:13px;").span(".item-icon .fa .fa-edit").end().span(".item-text *margin-left:6px;").text("编 辑").event("click", function ()
+                            {
+                                if (!window.editPopup) {
+                                    window.editPopup = new ns.tag.popup();
+                                    window.editPopup.css({ "background-color": "#60AC39", display: "none" });
+                                    //window.editPopup.hide();
+                                    //window.deletePopup.render();
+                                }
+                                //delete
+                                var selected = window.listTable.ns().find(".list-item-selected");
+                                if (!selected.length) {
+                                    window.editPopup.content("未选择所要删除的对象，无法完成此操作");
+                                    window.editPopup.render();
+                                    return;
+                                }
+                                var options = [];
+                                var folder = false;
+                                var hasSearucity = false;
+                                selected.each(function (d)
+                                {
+                                    var json = window.JSON.parse(ns.select(this).attr("ns-data"));
+                                    options.push(json);
+                                    folder = json.classify == "folder" ? true : false;
+                                });
+                                if (options.length > 1) {
+                                    window.editPopup.content("未选择所要删除的对象，无法完成此操作");
+                                    window.editPopup.render();
+                                    return;
+                                }
+                                if (options[0].classify == "folder") {
+                                    window.editPopup.content("文件夹无法完成此操作，只能对于文件进行编辑操作");
+                                    window.editPopup.render();
+                                    return;
+                                }
+                                window.location.href = "edit?p=" + options[0].u;
+                            }).end().end()
+                            .li(".menu-bar-item *float:left;border-bottom-color:transparent;margin-left:3px;line-height:30px;color:rgb(127,127,127);cursor:pointer;display:inline-block;max-width:250px;padding-left:8px;padding-right:8px;vectical-align:middle;white-space:nowrap;font-size:13px;").span(".item-icon .fa .fa-trash-o").end().span(".item-text *margin-left:6px;").text("删 除").event("click", function ()
+                            {
+                                if (!window.deletePopup) {
+                                    window.deletePopup = new ns.tag.popup();
+                                    window.deletePopup.css({ "background-color": "#60AC39" });
+                                    window.deletePopup.content("未选择所要删除的对象，无法完成此操作");
+                                    //window.deletePopup.render();
+                                }
+                                //delete
+                                var selected = window.listTable.ns().find(".list-item-selected");
+                                if (!selected.length) {
+                                    window.deletePopup.render();
+                                    return;
+                                }
+                                var options = [];
+                                var folder = false;
+                                var hasSearucity = false;
+                                var u = "";
+                                selected.each(function (d)
+                                {
+                                    var json = window.JSON.parse(ns.select(this).attr("ns-data"));
+                                    options.push(json);
+                                    folder = json.classify == "folder" ? true : false;
+                                    hasSearucity = window.parseInt(json.security) > 2 ? true : false;
+                                    u = json.u;
+                                });
+                                if (folder) {
+                                    if (!confirm("您所删除的对象中拥有文件夹，可能删除此文件夹，会删除文件夹内所有文件！是否确认删除")) {
+                                        return;
+                                    }
+                                }
+                                if (hasSearucity) {
+                                    if (!confirm("您所删除的对象中拥有高等级预警文件，你确定要删除么")) {
+                                        return;
+                                    }
+                                }
+                                if (!u) {
+                                    window.deletePopup.content("未选择所要删除的对象，无法完成此操作");
+                                    return;
+                                }
+                                ns.ajax.loadJson("/file.person", "delete", { g: u }, function (d)
+                                {
+                                    window.listTable.refreshing();
+                                });
+                            }).end().end()
+                            .li(".menu-bar-item *float:left;border-bottom-color:transparent;margin-left:3px;line-height:30px;color:rgb(127,127,127);cursor:pointer;display:inline-block;max-width:250px;padding-left:8px;padding-right:8px;vectical-align:middle;white-space:nowrap;font-size:13px;").span(".item-icon .fa .fa-refresh").end().span(".item-text *margin-left:6px;").text("刷 新").event("click", function ()
+                            {
+                                window.listTable.landing.show();
+                                window.listTable.refreshing();
+                            }).end().end()
+                            .li("*clear:both;").end()
+                        .end()
+                    .end()
+                    //center right
+                .end()
+            //middle-content core area
+            .div(".content-section-core *margin-top:150px;width:84.5%;margin-left:14%;margin-bottom:60px;")
+                .div(".list *margin-top:-2px;border-color:transparent;color:rgb(34,34,34);margin-left:10px;font-size:14px;")
+                    .div(".list-header *color:rgb(110,110,110);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:transparent;width:100%;")
+                        .div(".icon *height:25.4px;cursor:default;width:32px;float:left;").end()
+                        .div(".header *height:25.4px;cursor:default;line-height:25px;width:220px;font-size:13px;float:left;").text("文件名称").end()
+                        .div(".header *height:25.4px;cursor:default;line-height:25px;width:80px;font-size:13px;float:left;").text("类    型").end()
+                        .div(".header *height:25.4px;cursor:default;line-height:25px;width:80px;font-size:13px;float:left;").text("大   小").end()
+                        .div(".header *height:25.4px;cursor:default;line-height:25px;width:160px;font-size:13px;float:left;").text("创建时间").end()
+                        .div(".header *height:25.4px;cursor:default;line-height:25px;width:160px;font-size:13px;float:left;").text("文件等级").end()
+                        .div("*clear:both;").end()
+                    .end()
+                    .div(".content *overflow:visible;").host("listTable", window)
+                    .landingline({ width: "13", height: "1", "margin-top": "35px;" }, window.listTable)//list
+                        .refreshing("/file.person", "get", { folder: params.get("f") ? params.get("f") : "" }, function (d)
+                        {
+                            window.listTable.landing.hide();
+                            if (d.status <= 201 && d.result) {
+                                if (d.d.dir) {
+                                    var path = ns.tag.div()
+                                    for (var i = 0; i < d.d.dir.length; i++) {
+                                        path = path.span(".title-hover .path-dir-item :ns-options:" + d.d.dir[i].Value + "").text(d.d.dir[i].Key).end().span().text("/").end();
+                                    }
+                                    window.title.ns().html(path.end().html);
+                                    ns.select(".path-dir-item").on("click", function ()
+                                    {
+                                        window.listTable.landing.show();
+                                        window.listTable.refreshing({ folder: ns.select(this).attr("ns-options") });
+                                    })
+                                } else {
+                                    window.title.ns().html(ns.tag.div().span(".title-hover").text("Root").end().span().text("/").end().end().html);
+                                }
+                                window.currentDir = { name: d.d.name, folder: d.d.folder };
+                                ns.tag.div(".list-content *margin-top:5px;").datum(d.d.list).list(function (t)
+                                {
+                                    if (t.type == "folder") { t.classify = "folder"; t.icon = "fa-folder-o"; }
+                                    else {
+                                        if (/\.js$/.test(t.name)) { t.classify = "javascript"; t.icon = "fa-code"; }
+                                        else if (/\.css$/.test(t.name)) { t.classify = "css"; t.icon = "fa-css3"; }
+                                        else if (/\.html/.test(t.name)) { t.classify = "html"; t.icon = "fa-html5"; }
+                                        else if (/\.cs/.test(t.name)) { t.classify = "c#"; t.icon = "fa-code"; }
+                                        else { t.classify = "unknown"; t.icon = "fa-file-o"; }
+                                    }
+                                    this.div(".list-item *font-size:12px;").attr({ "ns-data": window.JSON.stringify(t) }).event("click", function (e)
+                                    {
+                                        var self = ns.select(this);
+
+                                        if (self.hasClass("list-item-selected"))
+                                            self.removeClass("list-item-selected");
+                                        else {
+                                            self.parent().find(".list-item-selected").removeClass("list-item-selected");
+                                            ns.select(this).addClass("list-item-selected");
+                                        }
+
+                                    }).if(t.type == "folder", function ()
+                                    {
+                                        this.event("dblclick", function ()
+                                        {
+                                            window.listTable.refreshing({ folder: t.u });
+                                        });
+                                    }, function ()
+                                    {
+                                        //var me = this;
+                                        //this.hover(function ()
+                                        //{
+                                        //    me.ns().find(".hover-show").show(10);
+                                        //}, function ()
+                                        //{
+                                        //    me.ns().find(".hover-show").hide(10);
+                                        //})
+                                    })
+                                        .div(".icon .fa ." + t.icon + " *height:25.4px;width:25px;float:left;font-size:16px;line-height:25px;margin-left:7px;").end()
+                                        .div(".icon *height:25.4px;line-height:25px;width:220px;font-size:13px;float:left;").text(t.name).end()
+                                        .div(".icon *height:25.4px;line-height:25px;width:80px;font-size:13px;float:left;").text(t.classify).end()
+                                        .div(".icon *height:25.4px;line-height:25px;width:80px;font-size:13px;float:left;").text("-").end()
+                                        .div(".icon *height:25.4px;line-height:25px;width:160px;font-size:13px;float:left;").text(t.createtime).end()
+                                        .div(".icon *height:25.4px;line-height:25px;width:160px;font-size:13px;float:left;").text(t.security).end()
+                                        .if(t.classify !== "folder", function ()
+                                        {
+                                            this.div(".icon .list-item-icon .hover-show *height:25.4px;line-height:25px;font-size:13px;float:right;margin-right:20px;").span("*margin-left:6px;").text(" ").end().span(".fa .fa-commenting-o *margin:0px;padding:0px;").event("click", function ()
+                                            {
+                                                window.fileComment.ns().show();
+                                                window.loadComments({ u: t.u });
+                                            }).end().end()
+                                        })
+                                        .div(".descrition *clear:both;").attr({ "ns-options-description": t.description || " " }).end()
+                                    .end();
+                                }).render(window.listTable, true);
+                            }
+                        }, "text/json")
+                    .end()
+                .end()
+            .end()
+            .div(".comment-down *display:none;float:left;width:82%;border-color:#e0e0e0;border-width:0.1px;position:fixed;left:13.5%;bottom:4px;min-height:280px;border-style:solid;background-color:white;").css({ "box-shadow": "gray 0 0 30px;" }).host("fileComment", window)
+
+                .div("*margin-bottom:1px;").landingline({ width: "13", height: "1", "margin-top": "35px;" }, window.fileComment).end()
+                .div().end()
+                .div(".info-bar *border-left-color:rgb(0,156,204);border-left-width:3px;border-left-style:solid;margin-left:0px;").div("*text-overflow:ellipsis;line-height:18.2px;font-size:14px;cursor:auto;margin-left:3px;float:left;").text("评  论").end().div(".screen-close .fa .fa-close *float:right;margin-right:5px;cursor:pointer; .hover-color").event("click", function ()
+                {
+                    window.fileComment.ns().hide(400);
+                }).end().div("*clear:both;").end().end()
+                .div(".file-comment-list ")
+                        .callback(function ()
+                        {
+                            var me = this;
+                            window.loadComments = function (data)
+                            {
+                                ns.ajax.load("/file.comment", "get", data, function (d)
+                                {
+                                    window.fileComment.landing.hide();
+                                    if (d.result && d.status <= 201 || true) {
+                                        ns.tag.div(".comment-list *width:99%;margin-top:6px;margin-left:5px;overflow:auto;height:280px;")
+                                        .datum(d.d).list(function (t)
+                                        {
+                                            this.div(".cmment-item *float:left;width:99%;min-height:55px;margin-left:4px;margin-top:10px;")
+                                            .div(".comment-user-container *line-height:20px;")
+                                                .span(".comment-icon *height:20px;display:inline-block;margin-top:3px;color:rgb(0,156,204) .fa .fa-user").end()
+                                                .span(".comment-user *font-size:13px;line-height:20px;font-weight:bold;color:#6d6d6d;display:inline-block;margin-top:-5px;height:20px;margin-left:5px;").text(t.uname).end()
+                                                .span(".comment-timespan *font-size:12px;line-height:20px;font-style:italic;color:#6d6d6d;margin-left:10px;").text(t.date).end()
+                                            .end()
+                                            .div("*width:99%;height:1px;border-top-width:1px;border-top-color:rgba(34,34,34,0.2);border-top-style:dashed;").end()
+                                            .div(".comment-context *background-color:#fff;width:100%;margin-top:2px;")
+                                                .text(t.text)
+                                            .end()
+                                        .end()
+                                        })
+
+                                        .end().end().render(me, true);
+
+                                    } else {
+                                        alert(d.message);
+                                    }
+                                }, "text/json")
+                            }
+                        })
+                        //.div(".cmment-item-left *float:left;width:9%;height:55px;margin-left:2px;margin-top:3px;").img(".identity-picture :src:default").end().end()
+
+                .end()
+            .end()
+        .end()
+        .render();
+    </script>
+    <script>
+
+        //var body=ns.select("body");
+        //ns.select(window).on("click", function (e)
+        //{
+        //        //window.fileComment.ns().hide();
+        //});
+        //window.loadComments({});
+    </script>
+</body>
+</html>

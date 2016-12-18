@@ -1,0 +1,43 @@
+﻿{
+  "unioncode": "init.organizations",
+  "organizations": [
+    {
+      "display": "local",
+      "chain": [
+        {
+          "text": "login",
+          "corpuscle": {
+            "assemly": "~\\Immuno.Vitae.Core.dll",
+            "where": "",
+            "type": "Immuno.Vitae.Core.UIModule.LoginCorp"
+          }
+        },
+        {
+          "text": "logon",
+          "corpuscle": {
+            "assemly": "~\\Immuno.Vitae.Core.dll",
+            "where": "",
+            "type": "Immuno.Vitae.Core.LogonCorp"
+          }
+        },
+        {
+          "text": "workitems",
+          "corpuscle": {
+            "assemly": "~\\Immuno.Vitae.Core.dll",
+            "where": "",
+            "type": "Immuno.Vitae.Core.UIModule.WorkitemsCorp"
+          }
+        },
+        {
+          "text": "workitem",
+          "corpuscle": {
+            "assemly": "~\\Immuno.Vitae.Core.dll",
+            "where": "",
+            "type": "Immuno.Vitae.Core.WorkitemsBacklogCorp"
+          }
+        }
+      ]
+    }
+  ]
+
+}

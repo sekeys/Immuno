@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../wwwroot/js/ns.js"></script>
+    <link href="wwwroot/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+
+        .item-selected {
+            color: rgb(0,122,204);
+            font-weight: 700;
+        }
+
+            .item-selected a {
+                color: rgb(0,122,204);
+                font-weight: 700;
+            }
+
+        .menu-item-link {
+            color: rgb(102,102,102);
+        }
+
+            .menu-item-link:hover {
+                color: rgb(0,122,204);
+            }
+
+        .list-item {
+            cursor: pointer;
+        }
+
+        .list-item-selected {
+            color: rgb(0,122,204);
+            cursor: pointer;
+            background-color: #e6f3fb;
+        }
+
+        .list-item:hover {
+            color: rgb(0,122,204);
+            cursor: pointer;
+            background-color: #e6f3fb;
+        }
+
+        .menu-bar-item {
+        }
+
+            .menu-bar-item:hover {
+                background-color: #d4e5f5;
+            }
+
+        .row {
+            cursor: pointer;
+            background-color: rgb(231,231,231);
+        }
+
+        .row-selected {
+            background-color: #d4e5f5;
+            color: rgb(0,122,204);
+        }
+    </style>
+    <!--//background-color:rgb(212,229,245);-->
+</head>
+<body style="">
+    <script>
+        ns.tag.div(".main-container *height:100%;width:100%;background-color:white;")
+            //header
+            .div(".header-section *font-size:100%;vertical-align:baseline;background-clip:border-box;background-color:rgb(0,122,204);border-color:rgb(0,122,204);height:32px")
+                .div(".header-title *color:white;font-size:100%;margin-left:20px;line-height:30px;").text("Vitae Editor").end()
+            .end()
+            //header   menu
+            .div(".menu *background-color:rgb(241,241,241);color:rgb(102,102,102);font-Size:14px;font-Weight:400;left:20px;font-style:normal")
+                .ul(".menu-list *list-style-type:none;margin:0px;padding:0px;list-style-position:outside;list-style-image:none;").css({ "font-family": "\"-apple-system\",BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Helvetica,Ubuntu,Arial,sans-serif;" })
+                    .li(".menu-item .item-rooms *float:left;border-bottom-color:transparent;margin-left:24px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "rooms", text: "Rooms" }).end().end()
+                    .li(".menu-item .item-groups *float:left;border-bottom-color:transparent;margin-left:24px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "groups", text: "Groups" }).end().end()
+                    .li(".menu-item .item-folders .item-selected *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "1", text: "Folders" }).end().end()
+                    .li(".menu-item .item-edit *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({  text: "Edit" }).end().end()
+                    .li(".menu-item .item-workitems *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "workitems", text: "Workitems" }).end().end()
+                    .li(".menu-item .item-blogs *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "blogs", text: "Blogs" }).end().end()
+                    .li(".menu-item .item-caledar *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "caledar", text: "Caledar" }).end().end()
+                    .li(".menu-item .item-precautions *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "chats", text: "Chats" }).end().end()
+                    .li(".menu-item .item-precautions *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "precautions", text: "Precautions" }).end().end()
+                    .li(".menu-item .item-messages *float:left;border-bottom-color:transparent;margin-left:14px;line-height:20px;color:rgb(127,127,127);padding:3px;").a(".menu-item-link *cursor:pointer;text-decoration:none;").attr({ href: "messages", text: "Messages" }).end().end()
+                    .li("*clear:both;").end()
+                .end()
+            .end()
+            //menu  top
+            .div(".content-section *color:rgb(51,51,51);margin:0px;margin-top:1px;min-height:840px;")
+                .div(".left-pane *width:13%;margin-left:5px;min-height:860px;float:left;margin-top:10px;")
+                    .div(".row .row-selected *border-bottom-width:1px;font-size:15px;padding-left:2px;line-height:30px;border-color:rgb(34,34,34);boder-style:none;height:30px;margin-left:0px;overflow:hidden;width:97%;margin-top:5px;margin-bottom:5px;padding-left:3px;").span(".fa .fa-user *font-size:13px;color:rgb(84,84,84)").end().span("*margin-left:3px;").text("My").end().end()
+                    .div(".row *border-bottom-width:1px;font-size:15px;padding-left:2px;line-height:30px;border-color:rgb(34,34,34);boder-style:none;height:30px;margin-left:0px;overflow:hidden;width:97%;margin-top:5px;margin-bottom:5px;padding-left:3px;").span(".fa .fa-group *font-size:13px;color:rgb(84,84,84)").end().span("*margin-left:3px;").text("MegaZonic").end().end()
+                .end()
+                //left center
+                .div(".split *cursor:e-resize;margin-bottom:0px;background-color:rgb(204,204,204);width:1px;min-height:860px;float:left;")
+                .end()
+                .div(".content *float:left;width:70%;")
+                    .div(".content-title *font-size:18px;margin-bottom:10px;margin-left:20px;margin-top:10px;display:inline-block;color:rgb(34,34,34);line-height:25px;font-weight:300;").host("title", window).text("Root Folder").end()
+                    .div(".menu-bar *background-color:transparent;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:rgb(204,204,204);border-top-width:1px;border-top-style:solid;border-top-color:rgb(204,204,204);color:rgb(30,30,30);font-size:12px;font-weight:400;height:32px;margin:10px 0px;overflow:hidden;padding:0px;vertical-align:top;")
+                        .ul(".menu-list *list-style-type:none;margin:0px;padding:0px;list-style-position:outside;list-style-image:none;height:34px;").css({ "font-family": "\"-apple-system\",BlinkMacSystemFont,\"Segoe UI\",Roboto,\"Helvetica Neue\",Helvetica,Ubuntu,Arial,sans-serif;" })
+                            .li(".menu-bar-item *float:left;border-bottom-color:transparent;margin-left:3px;line-height:30px;color:rgb(127,127,127);cursor:pointer;display:inline-block;max-width:250px;padding-left:8px;padding-right:8px;vectical-align:middle;white-space:nowrap;font-size:13px;").span(".item-icon .fa .fa-plus").end().span(".item-text *margin-left:6px;").text("创 建").end().end()
+                            .li(".menu-bar-item *float:left;border-bottom-color:transparent;margin-left:3px;line-height:30px;color:rgb(127,127,127);cursor:pointer;display:inline-block;max-width:250px;padding-left:8px;padding-right:8px;vectical-align:middle;white-space:nowrap;font-size:13px;").span(".item-icon .fa .fa-edit").end().span(".item-text *margin-left:6px;").text("编 辑").event("click", function ()
+                            {
+                                if (!window.editPopup) {
+                                    window.editPopup = new ns.tag.popup();
+                                    window.editPopup.css({ "background-color": "#60AC39" });
+                                    //window.deletePopup.render();
+                                }
+                                //delete
+                                var selected = window.listTable.ns().find(".list-item-selected");
+                                if (!selected.length) {
+                                    window.editPopup.content("未选择所要删除的对象，无法完成此操作");
+                                    window.editPopup.render();
+                                    return;
+                                }
+                                var options = [];
+                                var folder = false;
+                                var hasSearucity = false;
+                                selected.each(function (d)
+                                {
+                                    var json = window.JSON.parse(ns.select(this).attr("ns-data"));
+                                    options.push(json);
+                                    folder = json.classify == "folder" ? true : false;
+                                });
+                                if (options.length > 1) {
+                                    window.editPopup.content("未选择所要删除的对象，无法完成此操作");
+                                    window.editPopup.render();
+                                    return;
+                                }
+                                if (options[0].classify == "folder") {
+                                    window.editPopup.content("文件夹无法完成此操作，只能对于文件进行编辑操作");
+                                    window.editPopup.render();
+                                    return;
+                                }
+                                window.location.href = "edit?p="+options[0].u;
+                            }).end().end()
+                            .li(".menu-bar-item *float:left;border-bottom-color:transparent;margin-left:3px;line-height:30px;color:rgb(127,127,127);cursor:pointer;display:inline-block;max-width:250px;padding-left:8px;padding-right:8px;vectical-align:middle;white-space:nowrap;font-size:13px;").span(".item-icon .fa .fa-trash-o").end().span(".item-text *margin-left:6px;").text("删 除").event("click", function ()
+                            {
+                                if(!window.deletePopup){
+                                    window.deletePopup = new ns.tag.popup();
+                                    window.deletePopup.css({ "background-color": "#60AC39" });
+                                    window.deletePopup.content("未选择所要删除的对象，无法完成此操作");
+                                    //window.deletePopup.render();
+                                }
+                                //delete
+                                var selected = window.listTable.ns().find(".list-item-selected");
+                                if (!selected.length) {
+                                    window.deletePopup.render();
+                                    return;
+                                }
+                                var options = [];
+                                var folder = false;
+                                var hasSearucity = false;
+                                selected.each(function (d)
+                                {
+                                    var json = window.JSON.parse(ns.select(this).attr("ns-data"));
+                                    options.push(json);
+                                    folder = json.classify == "folder" ? true : false;
+                                    hasSearucity = window.parseInt(json.security) > 2 ? true : false;
+                                });
+                                if (folder) {
+                                    if (!confirm("您所删除的对象中拥有文件夹，可能删除此文件夹，会删除文件夹内所有文件！是否确认删除")) {
+                                        return;
+                                    }
+                                }
+                                if (hasSearucity) {
+                                    if (!confirm("您所删除的对象中拥有高等级预警文件，你确定要删除么")) {
+                                        return;
+                                    }
+                                }
+
+                            }).end().end()
+                            .li(".menu-bar-item *float:left;border-bottom-color:transparent;margin-left:3px;line-height:30px;color:rgb(127,127,127);cursor:pointer;display:inline-block;max-width:250px;padding-left:8px;padding-right:8px;vectical-align:middle;white-space:nowrap;font-size:13px;").span(".item-icon .fa .fa-refresh").end().span(".item-text *margin-left:6px;").text("刷 新").event("click", function () { window.listTable.landing.show(); window.listTable.refreshing();}).end().end()
+                            .li("*clear:both;").end()
+                        .end()
+                    .end()
+
+                    // center
+                    .div(".list *margin-top:-2px;border-color:transparent;color:rgb(34,34,34);margin-left:10px;font-size:14px;overflow:hidden;")
+                        .div(".list-header *color:rgb(110,110,110);border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:transparent;width:9999px;")
+                            .div(".icon *height:25.4px;cursor:default;width:32px;float:left;").end()
+                            .div(".header *height:25.4px;cursor:default;line-height:25px;width:220px;font-size:13px;float:left;").text("文件名称").end()
+                            .div(".header *height:25.4px;cursor:default;line-height:25px;width:80px;font-size:13px;float:left;").text("类    型").end()
+                            .div(".header *height:25.4px;cursor:default;line-height:25px;width:80px;font-size:13px;float:left;").text("大   小").end()
+                            .div(".header *height:25.4px;cursor:default;line-height:25px;width:160px;font-size:13px;float:left;").text("创建时间").end()
+                            .div(".header *height:25.4px;cursor:default;line-height:25px;width:160px;font-size:13px;float:left;").text("文件等级").end()
+                            .div("*clear:both;").end()
+                        .end()
+                        .div(".content").host("listTable", window)
+                        .landingline({ width: "13", height: "1", "margin-top": "35px;" }, window.listTable)//list
+                            .refreshing("/file.person", "get", { folder: "" }, function (d)
+                            {
+                                window.listTable.landing.hide();
+                                if (d.status <= 200 && d.result) {
+                                    ns.tag.div(".list-content *margin-top:5px;").datum(d.d).list(function (t)
+                                    {
+                                        if (t.type == "folder") { t.classify = "folder"; t.icon = "fa-folder-o"; }
+                                        else {
+                                            if (/\.js$/.test(t.name)) { t.classify = "javascript"; t.icon = "fa-code"; }
+                                            else if (/\.css$/.test(t.name)) { t.classify = "css"; t.icon = "fa-css3"; }
+                                            else if (/\.html/.test(t.name)) { t.classify = "html"; t.icon = "fa-html5"; }
+                                            else { t.classify = "unknown"; t.icon = "fa-file-o"; }
+                                        }
+                                        this.div(".list-item *font-size:12px;").attr({"ns-data":window.JSON.stringify(t)}).event("click", function (e)
+                                        {
+                                            ns.select(this).addClass("list-item-selected");
+                                            window.displayDetailInformation(t);
+                                        }).if(t.type == "folder", function ()
+                                        {
+                                            this.event("dbclick", function ()
+                                            {
+                                                window.listTable({ folder: t.parent });
+                                            });
+                                        }, function () { })
+                                            .div(".icon .fa ." + t.icon + " *height:25.4px;width:25px;float:left;font-size:16px;line-height:25px;margin-left:7px;").end()
+                                            .div(".icon *height:25.4px;line-height:25px;width:220px;font-size:13px;float:left;").text(t.name).end()
+                                            .div(".icon *height:25.4px;line-height:25px;width:80px;font-size:13px;float:left;").text(t.classify).end()
+                                            .div(".icon *height:25.4px;line-height:25px;width:80px;font-size:13px;float:left;").text("-").end()
+                                            .div(".icon *height:25.4px;line-height:25px;width:160px;font-size:13px;float:left;").text(t.createtime).end()
+                                            .div(".icon *height:25.4px;line-height:25px;width:160px;font-size:13px;float:left;").text(t.security).end()
+                                            .div(".descrition *clear:both;").attr({ "ns-options-description": t.description || " " }).end()
+                                        .end();
+                                    }).render(window.listTable, true);
+                                }
+                            }, "text/json")
+                        .end()
+                    .end()
+                    //center right
+                .end()
+                .div(".split *cursor:e-resize;margin-bottom:0px;background-color:rgb(204,204,204);width:1px;min-height:860px;float:left;")
+                .end()
+                .div(".right-pane *margin-left:8px;width:15%;float:left;")
+                    .div(".rp-title *margin-left:2px;margin-bottom:5px;font-size:17px;color:rgb(127,127,127);font-weight:100;margin-top:5px;").text("Detail Information").end()
+                    .div(".panel-instruction")
+                        .div(".instruction-content *margin-top:10px;").callback(function ()
+                        {
+                            window.displayDetailInformation = function (d)
+                            {
+                                ns.select(".instruction-header").text(d.name);
+                                ns.select(".instruction-item-size").find(".after").text(d.size || "-");
+                                ns.select(".instruction-item-classify").find(".after").text(d.classify);
+                                ns.select(".instruction-item-security").find(".after").text(d.security);
+                                ns.select(".instruction-item-description").find(".after").text(d.description);
+                            }
+                        })
+                            .div(".instruction-header *box-size:border-box;border-bottom-color:rgb(221,221,221);border-bottom-width:1px;margin-bottom:8px;border-bottom-style:solid;font-size:15px;color:rgb(82,82,82);").text("Namespace.js")
+                            .end()
+                            .div(".instruction-item-size  *box-size:border-box;border-bottom-width:0px;font-size:13px;color:rgb(82,82,82);margin-top:3px;")
+                                .span(".pre *height:20px;width:60px;display:inline-block;line-height:20px;font-size:12px;color:(132,1322,132)").text("文件大小").end().span(".middle *height:20px;display:inline-block;width:2px;line-height:20px;").text(":").end().span(".after *height:20px;display:inline-block;margin-left:7px;line-height:20px;").text("122Kb").end()
+                            .end()
+                            .div(".instruction-item-classify *box-size:border-box;border-bottom-width:0px;font-size:13px;color:rgb(82,82,82);margin-top:3px;")
+                                 .span(".pre *height:20px;width:60px;display:inline-block;line-height:20px;font-size:12px;color:(132,1322,132)").text("文件类型").end().span(".middle *height:20px;display:inline-block;width:2px;line-height:20px;").text(":").end().span(".after *height:20px;display:inline-block;margin-left:7px;line-height:20px;").text("javascript文件").end()
+                            .end()
+                            .div(".instruction-item-security *box-size:border-box;border-bottom-width:0px;font-size:13px;color:rgb(82,82,82);margin-top:3px;")
+                                 .span(".pre *height:20px;width:60px;display:inline-block;line-height:20px;font-size:12px;color:(132,1322,132)").text("文件等级").end().span(".middle *height:20px;display:inline-block;width:2px;line-height:20px;").text(":").end().span(".after *height:20px;display:inline-block;margin-left:7px;line-height:20px;font-size:13px;").text("javascript文件").end()
+                            .end()
+                            .div(".instruction-item-description *box-size:border-box;border-bottom-width:0px;font-size:13px;color:rgb(82,82,82);margin-top:3px;")
+                                 .span(".pre *height:20px;width:60px;display:inline-block;line-height:20px;font-size:12px;color:(132,1322,132)").text("文件描述").end().span(".middle *height:20px;display:inline-block;width:2px;line-height:20px;").text(":").end()
+                                .div(".after *height:20px;margin-left:4px;line-height:20px;word-wrap:break-word;text-indent:1.01em;").text("javascript文件122222222222222222222222222222222222222222222222222222222222222222").end()
+                            .end()
+                        .end()
+                    .end()
+                .end()
+            .end()
+        .end()
+        .render();
+    </script>
+</body>
+</html>

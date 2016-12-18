@@ -1,0 +1,43 @@
+﻿{
+  "unioncode": "init.organizations",
+  "organizations": [
+    {
+      "display": "local",
+      "chain": [
+        {
+          "text": "login",
+          "corpuscle": {
+            "assemly": "~\\Immuno.GanDong.dll",
+            "where": "",
+            "type": "Immuno.GanDong.LoginCorp"
+          }
+        },
+        {
+          "text": "logon",
+          "corpuscle": {
+            "assemly": "~\\Immuno.GanDong.dll",
+            "where": "",
+            "type": "Immuno.GanDong.LogonCorp"
+          }
+        },
+        {
+          "text": "orders",
+          "corpuscle": {
+            "assemly": "~\\Immuno.GanDong.dll",
+            "where": "",
+            "type": "Immuno.GanDong.OrdersCorp"
+          }
+        },
+        {
+          "text": "list",
+          "corpuscle": {
+            "assemly": "~\\Immuno.GanDong.dll",
+            "where": "",
+            "type": "Immuno.GanDong.ListCorp"
+          }
+        }
+      ]
+    }
+  ]
+
+}

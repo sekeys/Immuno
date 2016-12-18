@@ -1,16 +1,26 @@
-<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
-
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
+    <TargetFramework>netstandard1.6</TargetFramework>
   </PropertyGroup>
-
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputType>library</OutputType>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="**\*.cs" />
     <EmbeddedResource Include="**\*.resx" />
   </ItemGroup>
-
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.0" />
     <PackageReference Include="NETStandard.Library" Version="1.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="System.AppDomain" Version="2.0.11" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.3.0" />
+    <PackageReference Include="System.Linq" Version="4.3.0" />
+    <PackageReference Include="System.Linq.Parallel" Version="4.3.0" />
+    <PackageReference Include="System.Reflection" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.Context" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
+    <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
+    <PackageReference Include="System.Security.Principal" Version="4.3.0" />
   </ItemGroup>
-
 </Project>

@@ -1,0 +1,25 @@
+﻿{
+  "unioncode": "init.base",
+  "web_authentication": ".u",
+  "appsettings": {
+    "viewrootpath": "~\\Views",
+    "defaultweb": "login",
+    "web_authentication_cookie": ".u",
+    "connectionstring": "Data Source=DESKTOP-U6VC9FC;Initial Catalog=Vitae_Editor;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
+    "documentdb.authkeyorresourcetoken": "ya1IHBqikfVsTBlTk0RrGoqrykBuE2SBN2dbNw4QjdllCk1G1tqRdHW8gysTqbZ5YeIUHh6Oumu6lbx6C7nk1A==",
+    "documentdb.endpoint": "https://vitae.documents.azure.cn:443/"
+  },
+  "serverfeatures": [
+    {
+      "tag": "SF_Form_Ticks_Authentication",
+      "assemly": "~\\Immuno.Web.dll",
+      "type": "Immuno.Web.Authentication.FormTicksAuSFeature"
+    }
+  ],
+  "startups": [
+    {
+      "path": "E:\\Code\\Asp.Net Core\\Immuno\\Immuno.Vitae\\organizations.json"
+    }
+  ]
+ 
+}

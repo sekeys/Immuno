@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="wwwroot/css/site.css" rel="stylesheet" />
+    <link href="wwwroot/css/font-awesome.min.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>登陆   Vitae</title>
+    <meta charset="utf-8" />
+    <link href="../wwwroot/css/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+
+        .item-selected {
+            color: rgb(0,122,204);
+            font-weight: 700;
+        }
+
+            .item-selected a {
+                color: rgb(0,122,204);
+                font-weight: 700;
+            }
+
+        .menu-item-link {
+            color: rgb(102,102,102);
+        }
+
+            .menu-item-link:hover {
+                color: rgb(0,122,204);
+            }
+
+        .list-item {
+            cursor: pointer;
+        }
+
+        .list-item-selected {
+            color: rgb(0,122,204);
+            cursor: pointer;
+            background-color: #e6f3fb;
+        }
+
+        .list-item:hover {
+            color: rgb(0,122,204);
+            cursor: pointer;
+            background-color: #e6f3fb;
+        }
+
+        .list-item-icon-hover-show {
+            display: none;
+        }
+
+        .list-item:hover .list-item-icon-hover-show {
+            display: inline-block;
+        }
+
+        .menu-bar-item {
+        }
+
+            .menu-bar-item:hover {
+                background-color: #d4e5f5;
+            }
+
+        .menu-bar-item-fc:hover {
+            color: rgb(0,122,204);
+            cursor: pointer;
+        }
+
+        .row {
+            cursor: pointer;
+        }
+
+            .row:hover {
+                background-color: #d4e5f5;
+                color: rgb(0,122,204);
+            }
+
+        .row-selected {
+            background-color: #d4e5f5;
+            color: rgb(0,122,204);
+        }
+
+        .hover-fa {
+            background-color: transparent;
+        }
+
+            .hover-fa:hover {
+                background-color: #fafafa;
+                cursor: pointer;
+            }
+
+        .hover-white {
+            background-color: transparent;
+        }
+
+            .hover-white:hover {
+                background-color: white;
+                cursor: pointer;
+            }
+
+        .hover-button {
+            background-color: #fafafa;
+        }
+
+        .hover-input {
+            background-color: transparent;
+            padding-left: 4px;
+            cursor: auto;
+            color: rgb(102,102,102);
+        }
+
+            .hover-input:hover {
+                background-color: #fafafa;
+                color: rgb(0,122,204);
+            }
+
+        .tag {
+            margin-left: 5px;
+            margin-right: 5px;
+            width: auto;
+            float: left;
+            cursor: pointer;
+        }
+
+            .tag:last-child {
+                clear: both;
+            }
+
+            .tag input {
+                background-color: #d7e6f3;
+                line-height: 20px;
+                height: 20px;
+                width: auto;
+                border-width: 0px;
+                margin: 0px;
+                margin-top: -1px;
+            }
+
+            .tag span {
+                background-color: #d7e6f3;
+                display: inline-block;
+                padding-left: 5px;
+                padding-right: 5px;
+                width: auto;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<!--<body><input type="password" /></body>-->
+<body class="body">
+    
+    <div class="main-container" style=" height:100%; width:100%; background-color:white;">
+        <div class="header-section" style=" font-size:100%; vertical-align:baseline; background-clip:border-box; background-color:rgb(0,122,204); border-color:rgb(0,122,204); height:32px;">
+            <div class="header-title" style=" color:white; font-size:100%; margin-left:20px; line-height:30px;">Vitae Workitem</div>
+        </div>
+        <div class="menu" style=" background-color:rgb(241,241,241); color:rgb(102,102,102); font-Size:14px; font-Weight:400; left:20px; font-style:normal;">
+            <ul class="menu-list" style=" list-style-type:none; margin:0px; padding:0px; list-style-position:outside; list-style-image:none;">
+                <li class="item-workitems menu-item item-selected" style=" float:left; border-bottom-color:transparent; margin-left:14px; line-height:20px; color:rgb(127,127,127); padding:3px;">
+                    <a class="menu-item-link" href="workitems" text="Workitems" style=" cursor:pointer; text-decoration:none;">Workitems</a>
+                </li>
+                <li style=" clear:both;"></li>
+            </ul>
+        </div>
+        <div class="content-section" style=" color:rgb(51,51,51); margin:0px; margin-top:1px; min-height:840px;">
+            <div class="left-pane" style=" width:11%; margin-left:5px; min-height:860px; float:left; margin-top:10px;">
+                <div style=" margin-top:30px;"></div>
+                <div class="row" style=" border-bottom-width:1px; font-size:15px; padding-left:2px; line-height:30px; boder-style:none; height:30px; margin-left:0px; overflow:hidden; width:97%; margin-top:5px; margin-bottom:5px; padding-left:3px;">
+                    <span class="fa-align-right fa" style=" font-size:13px; color:rgb(0,122,204);"></span>
+                    <span style=" margin-left:5px;">我的工作项</span>
+                </div>
+                <div class="row" style=" margin-left:0px; overflow:hidden; width:97%; margin-left:0px;">
+                    <div class="row-inner row" style=" font-size:13px; padding-left:2px; line-height:20px; border-style:none; height:20px; margin-left:20px; overflow:hidden; width:97%; margin-top:5px; padding-left:3px;">
+                        <span style=" margin-left:5px;">所  有</span>
+                    </div>
+                </div>
+                <div class="row-selected row" style=" margin-left:0px; overflow:hidden; width:97%; margin-left:0px;">
+                    <div class="row-inner row" style=" font-size:13px; padding-left:2px; line-height:20px; border-style:none; height:20px; margin-left:20px; overflow:hidden; width:97%; margin-top:5px; padding-left:3px;"><span style=" margin-left:5px;">未 结 束</span></div>
+                </div><div class="row" style=" margin-left:0px; overflow:hidden; width:97%; margin-left:0px;">
+                    <div class="row-inner row" style=" font-size:13px; padding-left:2px; line-height:20px; border-style:none; height:20px; margin-left:20px; overflow:hidden; width:97%; margin-top:5px; padding-left:3px;">
+                        <span style=" margin-left:5px;">未 开 始</span>
+                    </div>
+                </div>
+                <div class="row" style=" margin-left:0px; overflow:hidden; width:97%; margin-left:0px;">
+                    <div class="row-inner row" style=" font-size:13px; padding-left:2px; line-height:20px; border-style:none; height:20px; margin-left:20px; overflow:hidden; width:97%; margin-top:5px; padding-left:3px;">
+                        <span style=" margin-left:5px;">正在进行时</span>
+                    </div>
+                </div>
+                <div class="row" style=" border-bottom-width:1px; font-size:15px; padding-left:2px; line-height:30px; border-style:none; height:30px; margin-left:0px; overflow:hidden; width:97%; margin-top:5px; margin-bottom:5px; padding-left:3px;">
+                    <span class="fa-align-right fa" style=" font-size:13px; color:rgb(0,122,204);"></span>
+                    <span style=" margin-left:5px;">Workon Dashbord</span>
+                </div>
+                <div class="row" style=" margin-left:0px; overflow:hidden; width:97%; margin-left:0px;">
+                    <div class="row-inner row" style=" font-size:13px; padding-left:2px; line-height:20px; border-style:none; height:20px; margin-left:20px; overflow:hidden; width:97%; margin-top:5px; padding-left:3px;">
+                        <span style=" margin-left:5px;">Workitems Metrics</span>
+                    </div>
+                </div>
+                <div class="row" style=" border-bottom-width:1px; font-size:15px; padding-left:2px; line-height:30px; border-style:none; height:30px; margin-left:0px; overflow:hidden; width:97%; margin-top:5px; margin-bottom:5px; padding-left:3px;">
+                    <span class="fa-align-right fa" style=" font-size:13px; color:rgb(0,122,204);"></span>
+                    <span style=" margin-left:5px;">Projects</span>
+                </div>
+            </div>
+            <div class="split" style=" cursor:e-resize; margin-bottom:0px; background-color:rgb(204,204,204); width:1px; min-height:860px; float:left;"></div>
+            <div class="content" style=" float:left; width:88%;">
+                <div class="content-title" style=" font-size:13px; margin-bottom:10px; margin-left:20px; margin-top:10px; display:inline-block; color:rgb(34,34,34); line-height:25px; font-weight:300;">Workitems List</div><div class="menu-bar" style=" background-color:transparent; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:rgb(204,204,204); border-top-width:1px; border-top-style:solid; border-top-color:rgb(204,204,204); color:rgb(30,30,30); font-size:12px; font-weight:400; height:32px; margin:10px;"><ul class="menu-list" style=" list-style-type:none; margin:0px; padding:0px; list-style-position:outside; list-style-image:none; height:34px; font-family:&quot;-apple-system&quot;,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,&quot;Helvetica Neue&quot;,Helvetica,Ubuntu,Arial,sans-serif;;"><li class="menu-bar-item" style=" float:left; border-bottom-color:transparent; margin-left:3px; line-height:30px; color:rgb(127,127,127); cursor:pointer; display:inline-block; max-width:250px; padding-left:8px; padding-right:8px; vectical-align:middle; white-space:nowrap; font-size:13px;"><span class="fa-plus fa item-icon"></span><span class="item-text" style=" margin-left:6px;">创 建</span></li><li class="menu-bar-item" style=" float:left; border-bottom-color:transparent; margin-left:3px; line-height:30px; color:rgb(127,127,127); cursor:pointer; display:inline-block; max-width:250px; padding-left:8px; padding-right:8px; vectical-align:middle; white-space:nowrap; font-size:13px;"><span class="fa-refresh fa item-icon"></span><span class="item-text" style=" margin-left:6px;">刷 新</span></li><li style=" clear:both;"></li></ul></div><div class="list" style=" margin-top:-2px; border-color:transparent; color:rgb(34,34,34); margin-left:10px; font-size:14px; overflow:hidden;">
+                    <div class="list-header" style=" color:rgb(110,110,110); border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:transparent; width:9999px;">
+                        <div class="icon" style=" height:25.4px; cursor:default; width:122px; float:left;"></div>
+                        <div class="header" style=" height:25.4px; cursor:default; line-height:25px; width:75px; font-size:13px; float:left; margin-left:20px;">优先级</div>
+                        <div class="header" style=" height:25.4px; cursor:default; line-height:25px; width:350px; font-size:13px; float:left;">标  题</div>
+                        <div class="header" style=" height:25.4px; cursor:default; line-height:25px; width:60px; font-size:13px; float:left; text-align:center;">状  态</div>
+                        <div class="header" style=" height:25.4px; cursor:default; line-height:25px; width:130px; font-size:13px; float:left; text-align:center;">负责人</div>
+                        <div class="header" style=" height:25.4px; cursor:default; line-height:25px; width:110px; font-size:13px; float:left; text-align:left; padding-left:10px;">预期开始时间</div>
+                        <div class="header" style=" height:25.4px; cursor:default; line-height:25px; width:110px; font-size:13px; float:left; text-align:left; padding-left:10px;">预期结束时间</div>
+                        <div style=" clear:both;"></div>
+                    </div>
+                    <div id="workitemlist-landing">
+                    </div>
+                    <div class="content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pager" style="position:absolute;z-index:10000;left:109px;"></div>
+    <script src="wwwroot/js/ns.core.js"></script>
+    <script id="pop-layer-template" type="text/html" style="display:none">
+        <div class="pop-body">
+            <div class="work-item-form-header-title" style=" color:#808080; padding-left:10px; width:99%; zoom:1; height:41px; font-size:18px; text-align:left; margin-top:2px;"><input class="hover-input workitem-title" type="textbox" value="" placeholder="输入工作标题" style=" text-align:left; line-height:31px; padding-left:4px; width:98%; font-size:18px; cursor:normal;"></div><div style=" clear:both;"></div><div class="work-item-form-header" style=" height:25px; margin:0px; font-size:12px;">
+                <div style=" float:left;">
+                    <span class="fa-user fa" style=" margin-left:18px;"></span>
+                    <label style=" color:#515151; margin-left:5px; padding-top:5px;">负责人</label>
+                    <select class="hover-fa work-item-assigned" style=" width:210px; margin-left:4px; border-width:0px;">
+                        <option text="me" value="" style=" border-width:0px; padding-left:7px;">me</option>
+                    </select>
+                    <span class="fa-exclamation fa" style=" margin-left:10px;"></span>
+                    <label style=" color:#515151; margin-left:5px; padding-top:5px;">优先级</label>
+                    <select class="hover-fa workitem-priority" style=" width:60px; margin-left:4px; padding-left:7px;">
+                        <option value="0" text="0">0</option>
+                        <option value="1" text="1">1</option>
+                        <option value="2" text="2" selected>2</option>
+                        <option value="3" text="3">3</option>
+                        <option value="4" text="4">4</option>
+                        <option value="5" text="5">5</option>
+                        <option value="6" text="6">6</option>
+                        <option value="7" text="7">7</option>
+                    </select>
+                    <span class="fa-calendar fa" style=" margin-left:10px;"></span>
+                    <label style=" color:#515151; margin-left:5px; padding-top:5px;">预期开始</label>
+                    <span style=" margin-left:10px; background-color:#fafafa;" class="starting-working">
+                    </span>
+                    <span class="fa-calendar fa" style=" margin-left:10px;"></span>
+                    <label style=" color:#515151; margin-left:5px; padding-top:5px;">预期结束</label>
+                    <span class="ending-working" style=" margin-left:10px; background-color:#fafafa;">
+
+                    </span>
+                </div>
+                <div style=" float:right;">
+                    <p class="menu-bar-item-fc menu-bar-item hover-button" style=" margin-right:8px; display:inline-block; height:23px; line-height:23px; width:70px; cursor:pointer;">
+                        <span class="fa-save fa" style=" margin-left:10px; cursor:pointer;"></span>
+                        <label style=" margin-left:5px; padding-top:5px; cursor:pointer;">保 存</label>
+                    </p>
+                </div>
+                <div style=" clear:both;"></div>
+            </div>
+            <div class="work-item-assign-info" style=" background-color:#fafafa; border-color:#e5e5e5; font-size:13px; height:80px; width:100%; margin:0px;">
+                <div style=" padding-top:15px;">
+                    <label style=" color:#515151; margin-left:18px; padding-top:5px;">
+                        状 态
+                    </label>
+                    <select class="work-item-state hover-white" style=" width:20%; margin-left:10px;">
+                        <option value="New" text="新建" selected>新建</option>
+                        <option value="Processing" text="正在处理">正在处理</option>
+                        <option value="Commited" text="已提交">已提交</option>
+                        <option value="reviewing" text="正在审查">正在审查</option>
+                        <option value="Completed" text="完成">完成</option>
+                        <option value="upgrading" text="正在更新">正在更新</option>
+                        <option value="Timeout" text="超时">超时</option>
+                    </select>
+                    <label style=" color:#515151; margin-left:18px; padding-top:5px;">项 目</label>
+                    <select class="work-item-area hover-white" style=" width:60%; margin-left:30px;">
+                        <option text="无" value=" ">无</option>
+                    </select>
+                </div>
+                <div style=" padding-top:15px;">
+                    <label style=" color:#515151; margin-left:18px; padding-top:5px;">类 型</label>
+                    <select class="workitem-type hover-white" style=" width:20%; margin-left:10px;">
+                        <option value="Task" text="新任务" selected>新任务</option>
+                        <option value="Fixing" text="修复">修复</option>
+                        <option value="Restore" text="任务重置">任务重置</option>
+                        <option value="Timeout" text="延迟项目周期">延迟项目周期</option>
+                    </select>
+                    <label style=" color:#515151; margin-left:18px; padding-top:5px;">迭代周期</label>
+                    <select class="work-item-iteration hover-white" style=" width:60%; margin-left:10px;">
+                        <option text="无" value=" ">无</option>
+                    </select>
+                </div>
+            </div><div class="work-item-detail" style=" margin-top:10px;">
+                <div class="left" style=" float:left; width:70%;">
+                    <div class="editor-header" style=" border-bottom-color:#e6e6e6; border-bottom-width:1px; width:97%; margin-left:10px; height:30px; line-height:30px;">
+                        <span style=" font-size:18px; width:80%; display:inline-block; font-weight:bold;">
+                            Description
+                        </span>
+                        <div style=" width:100%; height:1px; background-color:#e6e6e6;"></div>
+                    </div>
+                    <div class="description-editor">
+                        <!--<div class="edit-container" style=" width:99%; height:140px; color:rgb(34,34,34); font-size:12px; padding-bottom:2px; border-width:0px; border-style:solid; border-color:#e0e0e0; margin:5px;">
+                            <div class="edit-core" style=" font-size:12px; height:100%; width:100%; left:0px; width:100%; border-width:0px; border-style:solid; border-color:#e0e0e0; border-top-width:0px; margin-bottom:15px; box-shadow:gray 1px 1px #888888; padding-top:5px; padding-bottom:20px; padding-left:3px;">
+                                <div class="edit-header" style="font-size: 12px; left: 0px; width: 99%; border-width: 0.3px; border-style: solid; border-color: rgb(224, 224, 224); height: 24px; opacity: 0; display: none;">
+                                    <ul class="icon-menu-left edit-icon-menu" style=" float:left; font-size:12px; margin:0px; padding:0px; margin-right:2px; list-style:none;"></ul>
+                                    <ul class="icon-menu-right edit-icon-menu" style=" float:right; font-size:12px; margin:0px; padding:0px; margin-right:0.2px; list-style:none;">
+                                        <li class="icon-menu-item" title="preview" ns-command="preview" style=" height:16px; width:16px; padding:4px; float:left; cursor:pointer;">
+                                            <span class="fa-eye-slash fa" style=" height:16px; line-height:16px; width:16px; text-align:center; font-size:14px;"></span>
+                                        </li>
+                                        <li class="icon-menu-item" title="full screen" ns-command="fullscreen" style=" height:16px; width:16px; padding:4px; float:left; cursor:pointer;">
+                                            <span class="fa-laptop fa" style=" height:16px; line-height:16px; width:16px; text-align:center; font-size:14px;"></span>
+                                        </li>
+                                    </ul>
+                                </div><div class="edit-document-preview" style=" display:none; height:100%; width:100%;">
+                                    <iframe style=" width:98%; height:100%;"></iframe>
+                                </div>
+                                <div class="edit-domain" style=" display:block; height:100%;">
+                                    <textarea class="text-domain" style=" width:98%; height:84%; overflow:auto; font-size:14px; padding:5px; border-width:1px; background-color:#fafafa;"></textarea>
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="editor-header" style=" border-bottom-color:#e6e6e6; border-bottom-width:1px; width:97%; margin-left:10px; height:30px; line-height:30px;">
+                        <span style=" font-size:18px; width:80%; display:inline-block; font-weight:bold;">Discussion</span>
+                        <div style=" width:100%; height:1px; background-color:#e6e6e6;"></div>
+                    </div>
+                    <div style=" height:1px;">
+                        <div class="landing-line-container">
+                            <style>
+                                @-webkit-keyframes landingline_animate {
+                                    0% {
+                                        margin-left: 0;
+                                    }
+
+                                    5% {
+                                        margin-left: 4%;
+                                    }
+
+                                    50% {
+                                        margin-left: 37%;
+                                    }
+
+                                    100% {
+                                        margin-left: 87%;
+                                    }
+                                }
+
+                                @keyframes landingline_animate {
+                                    0% {
+                                        margin-left: 0;
+                                    }
+
+                                    5% {
+                                        margin-left: 4%;
+                                    }
+
+                                    50% {
+                                        margin-left: 37%;
+                                    }
+
+                                    100% {
+                                        margin-left: 87%;
+                                    }
+                                }
+                            </style>
+                            <div style=" height:1px; width:13%; margin:0px; float:left; background-color:#886ed7; animation:landingline_animate 3s infinite; -webkit-animation:landingline_animate 3s infinite; animation-delay:0s; -webkit-animation-delay:0s; ;:;;"></div>
+                        </div>
+                    </div>
+                    <div class="discussion-editor" style=" margin-top:10px; height:auto;">
+
+                    </div>
+                    <div style=" margin-top:1px;">
+                        <div style=" float:right; font-size:13px;">
+                            <p class="menu-bar-item-fc menu-bar-item hover-button" style=" margin-right:8px; display:inline-block; height:23px; line-height:23px; width:70px; cursor:pointer;">
+                                <span class="fa-save fa" style=" margin-left:10px; cursor:pointer;"></span>
+                                <label style=" margin-left:5px; padding-top:5px; cursor:pointer;">保 存</label>
+                            </p>
+                        </div>
+                    </div>
+                    <div style=" clear:both;"></div>
+                    <div class="discussion_layer" style=" margin-top:15px; margin-left:4px; height:auto;"></div>
+                </div>
+                <div class="right" style=" float:left; width:24%; margin-left:14px;">
+                    <div class="editor-header" style=" border-bottom-color:#e6e6e6; border-bottom-width:1px; width:97%; margin-left:10px; height:30px; line-height:30px;">
+                        <span style=" font-size:18px; width:80%; display:inline-block; font-weight:bold;">Tags</span>
+                        <span class="menu-bar-item-fc menu-bar-item fa-plus fa" style=" font-weight:normal; margin-right:5px; margin-left:auto; display:inline-block; height:23px; width:26px; line-height:20px; text-align:center;"></span>
+                        <div style=" width:100%; height:1px; background-color:#e6e6e6;">
+                            <div style=" float:left; width:120px;">
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="workitem-tags" style=" margin-top:10px; margin-bottom:15px; margin-left:5px;">
+                        <ul class="tags" style=" list-style-type:none;">
+                            <li class="tag" style=" height:20px; line-height:20px; width:auto;">
+                                <span>add tag</span>
+                            </li>
+                            <li class="tag" style=" height:20px; line-height:20px; width:auto;">
+                                <input type="text" value="add tag">
+                            </li>
+                            <li class="tag" style=" height:20px; line-height:20px; width:auto;"></li>
+                        </ul>
+                    </div>
+                    <div class="editor-header" style=" border-bottom-color:#e6e6e6; border-bottom-width:1px; width:97%; margin-left:10px; height:30px; line-height:30px; margin-top:10px;">
+                        <span style=" font-size:18px; width:80%; display:inline-block; font-weight:bold;">Related Works</span>
+                        <span class="menu-bar-item-fc menu-bar-item fa-plus fa" style=" font-weight:normal; margin-right:5px; margin-left:auto; display:inline-block; height:23px; width:26px; line-height:20px; text-align:center;"></span>
+                        <div style=" width:100%; height:1px; background-color:#e6e6e6;"></div>
+                    </div>
+                    <div class="workitem-relatedwork" style=" min-height:20px;"></div>
+                    <div></div>
+                    <!--<div class="editor-header" style=" border-bottom-color:#e6e6e6; border-bottom-width:1px; width:97%; margin-left:10px; height:30px; line-height:30px; margin-top:10px;">
+                        <span style=" font-size:18px; width:80%; display:inline-block; font-weight:bold;">History</span>
+                        <span class="menu-bar-item-fc menu-bar-item fa-plus fa" style=" font-weight:normal; margin-right:5px; margin-left:auto; display:inline-block; height:23px; width:26px; line-height:20px; text-align:center;"></span><div style=" width:100%; height:1px; background-color:#e6e6e6;"></div>
+                    </div>
+                    <div style="margin-top: 10px; opacity: 0; display: none;">
+                        <div>update status to NewTask.Work</div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+
+    </script>
+    <script>
+        ns.landingline({ parent: "#workitemlist-landing", width: 11 });
+        ns.layer({ css: { width: "80%", height: "80%", left: "10%", top: "10%" } }).render(function (layer, content) {
+            content.html(ns.select("#pop-layer-template").html());
+            layer.starttimepicker = ns.datetimepicker({ host: content.find(".starting-working"), format: "yyyy-MM-dd hh:mm:00", daynow: true }).render();
+            layer.endtimepicker = ns.datetimepicker({ host: content.find(".ending-working"), format: "yyyy-MM-dd hh:mm:00", daynow: true, previousDatetimePicker: layer.starttimepicker }).render();
+        });
+    </script>
+    <div id="editor" style="height:300px;">
+
+    </div>
+    <script>
+        var e =ns.editor();
+        e.host = ns.select("#editor");
+        e.dispatch.on("keyevent", function () {
+            e.preview();
+        });
+        e.render();
+    </script>
+</body>
+
+</html>
